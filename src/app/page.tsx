@@ -29,7 +29,13 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(){try{if(sessionStorage.getItem('ras-intro-seen')!=='1'){document.documentElement.classList.add('intro-splash-pending');document.documentElement.style.backgroundColor='#8e1a28';}}catch(e){}})();`,
+        }}
+      />
       <IntroSplash />
+      <div id="ras-site">
       <Header />
       <main id="main-content">
         <Hero />
@@ -50,6 +56,7 @@ export default function HomePage() {
         <FinalCTASection />
       </main>
       <Footer />
+      </div>
     </>
   );
 }

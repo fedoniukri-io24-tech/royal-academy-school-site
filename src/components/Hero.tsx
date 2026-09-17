@@ -1,5 +1,6 @@
 import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
 import { HeroDecorations } from '@/components/hero/HeroDecorations';
+import { HeroFormatWord } from '@/components/hero/HeroFormatWord';
 
 export function Hero() {
   return (
@@ -18,7 +19,7 @@ export function Hero() {
           <h1 className="hero-headline">
             <span className="hero-line hero-line--sans">преміальна</span>
             <span className="hero-line hero-line--serif">школа мов</span>
-            <span className="hero-line hero-line--sans hero-line--offset">онлайн</span>
+            <HeroFormatWord />
           </h1>
 
           <div className="hero-actions">

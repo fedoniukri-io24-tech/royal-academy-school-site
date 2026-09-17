@@ -435,6 +435,72 @@ button {
   margin-top: -6px;
 }
 
+.hero-format-word {
+  white-space: nowrap;
+}
+
+.hero-format-letter,
+.hero-format-flip {
+  display: inline-block;
+}
+
+.hero-format-flip {
+  position: relative;
+  width: 0.62em;
+  height: 1.1em;
+  vertical-align: bottom;
+  perspective: 500px;
+}
+
+.hero-format-flip-pane {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+.hero-format-flip-pane--next {
+  transform: rotateX(90deg);
+}
+
+.hero-format-flip--active .hero-format-flip-pane--current {
+  animation: hero-format-flip-out 0.48s ease-in forwards;
+}
+
+.hero-format-flip--active .hero-format-flip-pane--next {
+  animation: hero-format-flip-in 0.48s ease-out forwards;
+}
+
+@keyframes hero-format-flip-out {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes hero-format-flip-in {
+  from {
+    transform: rotateX(90deg);
+  }
+
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-format-flip--active .hero-format-flip-pane--current,
+  .hero-format-flip--active .hero-format-flip-pane--next {
+    animation: none;
+  }
+}
+
 .hero-desc {
   color: #fff;
   font-family: var(--font-section-body);

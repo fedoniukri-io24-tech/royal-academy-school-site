@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { HeroDecorations } from '@/components/hero/HeroDecorations';
 import { lockScroll, unlockScroll } from '@/lib/scrollLock';
 
@@ -8,21 +8,31 @@ const INTRO_SEEN_KEY = 'ras-intro-seen';
 const EXIT_DELAY_MS = 2400;
 const HIDE_DELAY_MS = 3100;
 
-export function IntroSplash() {
-  const [phase, setPhase] = useState<'loading' | 'visible' | 'exiting' | 'hidden'>('loading');
+type IntroPhase = 'visible' | 'exiting' | 'hidden';
 
-  useEffect(() => {
+function markIntroDone() {
+  document.documentElement.classList.remove('intro-splash-pending');
+  document.documentElement.style.removeProperty('background-color');
+}
+
+export function IntroSplash() {
+  const [phase, setPhase] = useState<IntroPhase>('visible');
+
+  useLayoutEffect(() => {
     const seen = sessionStorage.getItem(INTRO_SEEN_KEY) === '1';
     if (seen) {
+      markIntroDone();
       setPhase('hidden');
       return;
     }
 
-    setPhase('visible');
+    document.documentElement.classList.add('intro-splash-pending');
+    document.documentElement.style.backgroundColor = '#8e1a28';
 
     const exitTimer = window.setTimeout(() => setPhase('exiting'), EXIT_DELAY_MS);
     const hideTimer = window.setTimeout(() => {
       sessionStorage.setItem(INTRO_SEEN_KEY, '1');
+      markIntroDone();
       setPhase('hidden');
     }, HIDE_DELAY_MS);
 
@@ -40,7 +50,7 @@ export function IntroSplash() {
     return undefined;
   }, [phase]);
 
-  if (phase === 'loading' || phase === 'hidden') {
+  if (phase === 'hidden') {
     return null;
   }
 
