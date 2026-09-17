@@ -1,0 +1,284 @@
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  --hero-prop-safe-top: 118px;
+  --hero-prop-safe-bottom: 40px;
+  --hero-prop-safe-x: clamp(10px, 3vw, 72px);
+  background:
+    radial-gradient(ellipse 90% 70% at 18% 0%, rgba(208, 176, 106, 0.2), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 88% 100%, rgba(255, 255, 255, 0.07), transparent 52%),
+    linear-gradient(165deg, #b82a3a 0%, #8e1a28 38%, #721420 68%, #420c12 100%);
+}
+
+.intro-splash::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.38;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.intro-splash-glow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at 50% 45%, rgba(208, 176, 106, 0.16), transparent 48%);
+  animation: intro-glow-pulse 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.intro-splash-shine {
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 60%;
+  height: 180%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 42%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.04) 58%,
+    transparent 100%
+  );
+  transform: rotate(12deg);
+  animation: intro-shine-sweep 2.4s ease-in-out 0.4s both;
+  pointer-events: none;
+}
+
+.intro-splash-props {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.intro-splash .hero-prop {
+  color: #fff;
+  opacity: 0;
+  animation: intro-prop-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.intro-splash .hero-prop--glasses {
+  animation-delay: 0.15s;
+}
+
+.intro-splash .hero-prop--photo {
+  animation-delay: 0.25s;
+}
+
+.intro-splash .hero-prop--desk {
+  animation-delay: 0.35s;
+}
+
+.intro-splash .hero-prop--laptop {
+  animation-delay: 0.45s;
+}
+
+.intro-splash-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  text-align: center;
+}
+
+.intro-splash-logo {
+  display: block;
+  width: clamp(72px, 16vw, 96px);
+  height: auto;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.82);
+  filter: blur(4px);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+  animation: intro-logo-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+
+.intro-splash-title {
+  line-height: 1.02;
+}
+
+.intro-splash-line {
+  display: block;
+  opacity: 0;
+}
+
+.intro-splash-line--main {
+  font-family: var(--font-section-display);
+  font-size: clamp(28px, 7vw, 48px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  transform: translateY(28px);
+  filter: blur(6px);
+  animation: intro-line-main 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+.intro-splash-line--accent {
+  margin-top: 4px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(44px, 11vw, 76px);
+  font-weight: 400;
+  color: var(--gold);
+  transform: translateY(32px) scale(0.94);
+  filter: blur(8px);
+  text-shadow: 0 8px 40px rgba(208, 176, 106, 0.35);
+  animation: intro-line-accent 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+}
+
+.intro-splash--exiting {
+  animation: intro-exit 0.7s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+  pointer-events: none;
+}
+
+.intro-splash--exiting .intro-splash-content {
+  animation: intro-content-exit 0.65s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+.intro-splash--exiting .hero-prop,
+.intro-splash--exiting .intro-splash-logo {
+  animation: intro-fade-out 0.55s ease forwards;
+}
+
+@keyframes intro-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes intro-shine-sweep {
+  from {
+    transform: rotate(12deg) translateX(-30%);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  to {
+    transform: rotate(12deg) translateX(180%);
+    opacity: 0;
+  }
+}
+
+@keyframes intro-line-main {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes intro-line-accent {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes intro-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes intro-content-exit {
+  to {
+    opacity: 0;
+    transform: translateY(-18px) scale(1.04);
+    filter: blur(4px);
+  }
+}
+
+@keyframes intro-logo-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes intro-prop-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 0.88;
+    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.28));
+  }
+}
+
+@keyframes intro-fade-out {
+  to {
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-splash {
+    --hero-prop-safe-top: 104px;
+    --hero-prop-safe-bottom: 180px;
+    --hero-prop-safe-x: 4px;
+  }
+
+  .intro-splash .hero-prop {
+    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.28));
+  }
+
+  @keyframes intro-prop-in {
+    to {
+      opacity: 0.88;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-splash-glow,
+  .intro-splash-shine,
+  .intro-splash-line--main,
+  .intro-splash-line--accent,
+  .intro-splash-logo,
+  .intro-splash .hero-prop,
+  .intro-splash--exiting,
+  .intro-splash--exiting .intro-splash-content,
+  .intro-splash--exiting .hero-prop,
+  .intro-splash--exiting .intro-splash-logo {
+    animation: none;
+  }
+
+  .intro-splash-line--main,
+  .intro-splash-line--accent,
+  .intro-splash-logo,
+  .intro-splash .hero-prop {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .intro-splash--exiting {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}

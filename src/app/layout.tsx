@@ -10,6 +10,7 @@ import '../styles/responsive.css';
 import '../styles/not-found.css';
 import '../styles/legal-page.css';
 import '../styles/lead-form.css';
+import '../styles/intro-splash.css';
 
 export const metadata: Metadata = createRootMetadata();
 

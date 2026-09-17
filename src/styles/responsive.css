@@ -214,9 +214,12 @@ main {
   }
 
   .hero-headline {
+    position: relative;
+    z-index: 5;
     width: 100%;
     max-width: 100%;
     margin-bottom: 0;
+    padding-right: 8px;
     text-align: left;
   }
 
@@ -283,26 +286,68 @@ main {
   }
 
   .hero-prop {
-    opacity: 0.3;
+    display: block;
+    opacity: 0.88;
+    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.28));
+    animation: side-fade 0.9s ease both;
   }
 
-  .hero-prop--glasses,
+  .hero-prop--glasses {
+    top: clamp(318px, 44vh, 390px);
+    left: -14px;
+    right: auto;
+    bottom: auto;
+    transform: scale(0.62) rotate(-10deg);
+    transform-origin: left center;
+    animation-delay: 0.1s;
+  }
+
   .hero-prop--photo {
-    display: none;
+    top: clamp(332px, 46vh, 404px);
+    right: -14px;
+    left: auto;
+    bottom: auto;
+    transform: scale(0.58) rotate(11deg);
+    transform-origin: right center;
+    animation-delay: 0.22s;
   }
 
   .hero-prop--desk {
-    top: clamp(128px, 30vh, 240px);
-    bottom: auto;
-    left: var(--hero-prop-safe-x);
-    transform: scale(0.36);
+    top: auto;
+    bottom: clamp(208px, 31vh, 290px);
+    left: -14px;
+    right: auto;
+    transform: scale(0.64) rotate(-6deg);
+    transform-origin: left bottom;
+    animation-delay: 0.34s;
   }
 
   .hero-prop--laptop {
-    top: clamp(148px, 34vh, 260px);
-    bottom: auto;
-    right: var(--hero-prop-safe-x);
-    transform: scale(0.34);
+    top: auto;
+    bottom: clamp(200px, 29vh, 278px);
+    right: -14px;
+    left: auto;
+    transform: scale(0.62) rotate(8deg);
+    transform-origin: right bottom;
+    animation-delay: 0.46s;
+  }
+
+  .hero-prop-frame {
+    inset: -10px;
+  }
+
+  .hero-prop-frame span {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-polaroid {
+    width: 112px;
+    padding: 8px 8px 24px;
+  }
+
+  .hero-polaroid img {
+    height: 92px;
   }
 
   /* Levels — fix flex/grid conflict from 1100px breakpoint */
@@ -625,16 +670,32 @@ main {
     height: 50px;
   }
 
+  .hero-prop--glasses {
+    top: clamp(296px, 42vh, 360px);
+    transform: scale(0.56) rotate(-10deg);
+  }
+
+  .hero-prop--photo {
+    top: clamp(308px, 44vh, 372px);
+    transform: scale(0.54) rotate(11deg);
+  }
+
   .hero-prop--desk {
-    top: clamp(120px, 28vh, 220px);
-    transform: scale(0.32);
-    opacity: 0.26;
+    bottom: clamp(196px, 29vh, 272px);
+    transform: scale(0.58) rotate(-6deg);
   }
 
   .hero-prop--laptop {
-    top: clamp(138px, 32vh, 240px);
-    transform: scale(0.3);
-    opacity: 0.26;
+    bottom: clamp(188px, 27vh, 264px);
+    transform: scale(0.56) rotate(8deg);
+  }
+
+  .hero-polaroid {
+    width: 104px;
+  }
+
+  .hero-polaroid img {
+    height: 84px;
   }
 
   /* Programs */
@@ -713,15 +774,23 @@ main {
 
 /* Very small */
 @media (max-width: 380px) {
+  .hero-prop--glasses {
+    top: clamp(278px, 40vh, 340px);
+    transform: scale(0.5) rotate(-10deg);
+  }
+
+  .hero-prop--photo {
+    top: clamp(290px, 42vh, 352px);
+    transform: scale(0.48) rotate(11deg);
+  }
+
   .hero-prop--desk {
-    top: clamp(112px, 26vh, 200px);
-    transform: scale(0.28);
-    opacity: 0.22;
+    bottom: clamp(184px, 27vh, 252px);
+    transform: scale(0.52) rotate(-6deg);
   }
 
   .hero-prop--laptop {
-    top: clamp(128px, 30vh, 220px);
-    transform: scale(0.26);
-    opacity: 0.22;
+    bottom: clamp(176px, 25vh, 244px);
+    transform: scale(0.5) rotate(8deg);
   }
 }

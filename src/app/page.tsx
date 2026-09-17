@@ -19,6 +19,7 @@ import { PricingSection } from '@/components/sections/PricingSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Footer } from '@/components/sections/Footer';
+import { IntroSplash } from '@/components/IntroSplash';
 
 export const metadata: Metadata = createPageMetadata({
   path: '/',
@@ -28,6 +29,7 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
+      <IntroSplash />
       <Header />
       <main id="main-content">
         <Hero />
