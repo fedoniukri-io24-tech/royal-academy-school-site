@@ -1,6 +1,19 @@
 import { SITE_CONTACTS } from '@/data/siteContacts';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://royalacademyschool.ua';
+const DEFAULT_SITE_URL = 'https://royalacademyschool.ua';
+
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return DEFAULT_SITE_URL;
+
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
+const siteUrl = resolveSiteUrl();
 
 export const SITE = {
   name: SITE_CONTACTS.name,
