@@ -450,10 +450,18 @@ main {
   }
 
   .hero-inner {
-    padding-top: 104px;
-    padding-bottom: 72px;
+    padding-top: 100px;
+    padding-bottom: clamp(96px, 15vh, 120px);
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .hero-bg img {
+    object-position: center 12%;
+  }
+
+  .hero-actions {
+    padding-top: clamp(72px, 18vh, 140px);
   }
 
   .hero-transition-fade {
