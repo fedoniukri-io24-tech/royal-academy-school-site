@@ -19,7 +19,7 @@ const CORPORATE_PERKS = [
 
 export function CorporateSection() {
   return (
-    <section className="ras-section ras-corporate ras-bg-dark" id="corporate">
+    <section className="ras-section ras-corporate ras-bg-burgundy" id="corporate">
       <div className="ras-wrap">
         <SectionReveal>
           <span className="ras-corporate-badge">Royal Academy School for Business</span>

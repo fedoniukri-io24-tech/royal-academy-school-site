@@ -4,7 +4,13 @@ import { LEVELS } from '@/data/homeContent';
 import { SectionTitle } from '../ui/SectionTitle';
 import { SectionReveal } from '../ui/SectionReveal';
 
-const LEVEL_ACCENTS = ['var(--corporate)', '#2eb0c0', 'var(--adults)', '#9a72e8', 'var(--burgundy)'];
+const LEVEL_ACCENTS = [
+  'var(--burgundy)',
+  'var(--navy-2)',
+  'var(--burgundy-2)',
+  'var(--navy-mid)',
+  'var(--burgundy-deep)',
+];
 
 export function LevelsSection() {
   return (

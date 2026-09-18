@@ -14,19 +14,19 @@ const PLATFORM_FEATURES = [
     text: 'Вправи для самостійного відпрацювання',
     emoji: '✏️',
     tag: 'Вправи',
-    accent: 'var(--adults)',
+    accent: 'var(--navy-2)',
   },
   {
     text: 'Vocabulary для повторення між заняттями',
     emoji: '📚',
     tag: 'Слова',
-    accent: 'var(--gold)',
+    accent: 'var(--burgundy-2)',
   },
   {
     text: 'Доступ у власному кабінеті студента',
     emoji: '💻',
     tag: 'Кабінет',
-    accent: 'var(--corporate)',
+    accent: 'var(--navy-mid)',
   },
 ];
 

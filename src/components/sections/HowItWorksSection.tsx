@@ -4,10 +4,10 @@ import { SectionReveal } from '../ui/SectionReveal';
 
 export function HowItWorksSection() {
   return (
-    <section className="ras-section ras-steps ras-bg-dark" id="how-it-works">
+    <section className="ras-section ras-steps ras-bg-burgundy" id="how-it-works">
       <div className="ras-wrap">
         <SectionReveal>
-          <SectionTitle main="як?" accent="проходить навчання" light />
+          <SectionTitle main="як?" accent="проходить навчання" />
         </SectionReveal>
 
         <div className="ras-steps-grid">

@@ -19,17 +19,25 @@
 }
 
 .ras-section-title {
-  font-family: var(--font-section-display);
-  font-weight: 600;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.12;
-  text-transform: uppercase;
-  color: var(--navy-2);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   margin-bottom: 48px;
   max-width: 960px;
 }
 
 .ras-section-title.light {
+  background: none;
+  -webkit-text-fill-color: #fff;
   color: #fff;
 }
 
@@ -96,13 +104,24 @@
 }
 
 .ras-btn-primary {
-  background: var(--burgundy);
+  background:
+    linear-gradient(180deg, rgba(232, 212, 168, 0.22) 0%, transparent 40%),
+    var(--gradient-burgundy);
   color: #fff;
-  box-shadow: 0 10px 28px rgba(142, 26, 40, 0.25);
+  box-shadow:
+    0 10px 28px rgba(142, 26, 40, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(168, 132, 46, 0.18);
 }
 
 .ras-btn-primary:hover {
-  background: var(--burgundy-2);
+  background:
+    linear-gradient(180deg, rgba(240, 220, 176, 0.28) 0%, transparent 42%),
+    var(--gradient-burgundy-hover);
+  box-shadow:
+    0 14px 34px rgba(142, 26, 40, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(168, 132, 46, 0.24);
 }
 
 .ras-btn-outline {
@@ -144,7 +163,7 @@
 }
 
 .ras-check.light {
-  color: var(--gold);
+  color: var(--brand-white);
 }
 
 /* Languages — colorful cards */
@@ -162,6 +181,7 @@
 }
 
 .ras-lang-card {
+  --lang-tint: var(--burgundy);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,44 +189,81 @@
   min-height: 100%;
   padding: 32px 26px 28px;
   border-radius: var(--ras-radius-md);
-  color: #fff;
-  box-shadow: var(--ras-shadow-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 72% 58% at 88% 6%, color-mix(in srgb, var(--lang-tint) 10%, transparent), transparent 58%),
+    radial-gradient(ellipse 55% 45% at 4% 96%, color-mix(in srgb, var(--lang-tint) 6%, transparent), transparent 54%),
+    linear-gradient(
+      165deg,
+      #ffffff 0%,
+      color-mix(in srgb, var(--lang-tint) 5%, white) 44%,
+      color-mix(in srgb, var(--lang-tint) 3%, #fafbfc) 100%
+    );
+  border: 2px solid var(--lang-border, var(--burgundy));
+  border-top-width: 4px;
+  box-shadow: var(--shadow-premium);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
   overflow: hidden;
   position: relative;
 }
 
-.ras-lang-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 45%, rgba(0, 0, 0, 0.08) 100%);
-  pointer-events: none;
+.ras-lang-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ras-lang-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(16, 32, 64, 0.16);
+  box-shadow: var(--shadow-premium-hover);
+  border-color: var(--lang-border-hover, var(--burgundy-2));
+  background:
+    radial-gradient(ellipse 74% 60% at 88% 6%, color-mix(in srgb, var(--lang-tint) 14%, transparent), transparent 58%),
+    radial-gradient(ellipse 58% 48% at 4% 96%, color-mix(in srgb, var(--lang-tint) 9%, transparent), transparent 54%),
+    linear-gradient(
+      165deg,
+      #ffffff 0%,
+      color-mix(in srgb, var(--lang-tint) 7%, white) 44%,
+      color-mix(in srgb, var(--lang-tint) 5%, #fafbfc) 100%
+    );
 }
 
 .ras-lang-card--burgundy {
-  background: linear-gradient(145deg, #a82434 0%, #8e1a28 55%, #6b1420 100%);
+  --lang-tint: var(--burgundy);
+  --lang-border: var(--burgundy);
+  --lang-border-hover: var(--burgundy-2);
+  --lang-accent: var(--burgundy);
 }
 
-.ras-lang-card--gold {
-  background: linear-gradient(145deg, #e0c078 0%, #c9a227 55%, #a8861e 100%);
+.ras-lang-card--navy {
+  --lang-tint: var(--navy-2);
+  --lang-border: var(--navy-2);
+  --lang-border-hover: var(--navy-mid);
+  --lang-accent: var(--navy-2);
 }
 
-.ras-lang-card--purple {
-  background: linear-gradient(145deg, #8a63d4 0%, #6f4db8 55%, #5538a0 100%);
+.ras-lang-card--burgundy-light {
+  --lang-tint: var(--burgundy-2);
+  --lang-border: var(--burgundy-2);
+  --lang-border-hover: var(--burgundy);
+  --lang-accent: var(--burgundy-2);
 }
 
-.ras-lang-card--orange {
-  background: linear-gradient(145deg, #f0945a 0%, #e07a3a 55%, #c4622a 100%);
+.ras-lang-card--navy-deep {
+  --lang-tint: var(--navy);
+  --lang-border: var(--navy);
+  --lang-border-hover: var(--navy-2);
+  --lang-accent: var(--navy);
 }
 
-.ras-lang-card--teal {
-  background: linear-gradient(145deg, #3cc4d4 0%, #1f9aab 55%, #167d8a 100%);
+.ras-lang-card--burgundy-deep {
+  --lang-tint: var(--burgundy-deep);
+  --lang-border: var(--burgundy-deep);
+  --lang-border-hover: var(--burgundy);
+  --lang-accent: var(--burgundy-deep);
 }
 
 .ras-lang-emoji {
@@ -226,7 +283,7 @@
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 8px;
-  color: #fff;
+  color: var(--lang-accent, var(--burgundy));
 }
 
 .ras-lang-tagline {
@@ -236,7 +293,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--navy-2);
   margin-bottom: 12px;
 }
 
@@ -246,7 +303,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--gray);
   margin-bottom: 16px;
   max-width: 300px;
 }
@@ -264,7 +321,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--gray);
   margin-bottom: 8px;
 }
 
@@ -278,11 +335,11 @@
 .ras-lang-tag {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: color-mix(in srgb, var(--lang-accent, var(--burgundy)) 8%, white);
+  border: 1px solid color-mix(in srgb, var(--lang-accent, var(--burgundy)) 28%, white);
   font-size: 11px;
   font-weight: 600;
-  color: #fff;
+  color: var(--lang-accent, var(--burgundy));
   white-space: nowrap;
 }
 
@@ -292,13 +349,31 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--gray);
   margin-bottom: 18px;
 }
 
 .ras-lang-card .ras-pill-btn {
   position: relative;
   z-index: 1;
+  background: var(--gradient-burgundy);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.ras-lang-card--navy .ras-pill-btn,
+.ras-lang-card--navy-deep .ras-pill-btn {
+  background: var(--gradient-navy);
+}
+
+.ras-lang-card--burgundy-light .ras-pill-btn,
+.ras-lang-card--burgundy-deep .ras-pill-btn {
+  background: linear-gradient(135deg, var(--burgundy-2) 0%, var(--burgundy) 52%, var(--burgundy-deep) 100%);
+}
+
+.ras-lang-card .ras-pill-btn:hover {
+  transform: scale(1.04);
+  filter: brightness(1.05);
 }
 
 /* Why us — soft carousel cards */
@@ -362,9 +437,21 @@
   pointer-events: none;
 }
 
-/* Steps — glassmorphism grid */
+/* Steps — burgundy section */
 .ras-steps {
   overflow: hidden;
+}
+
+.ras-steps .ras-step-card.ras-card-glass {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ras-steps .ras-step-card.ras-card-glass:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.32);
 }
 
 .ras-steps-grid {
@@ -403,7 +490,7 @@
   font-weight: 400;
   font-size: clamp(42px, 4.5vw, 60px);
   line-height: 1;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.55);
   flex-shrink: 0;
 }
 
@@ -415,7 +502,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .ras-step-emoji {
@@ -509,7 +596,7 @@
   height: 4px;
   transform: translateY(-50%);
   border-radius: var(--ras-radius-pill);
-  background: linear-gradient(90deg, var(--corporate) 0%, var(--adults) 55%, var(--burgundy) 100%);
+  background: linear-gradient(90deg, var(--navy-2) 0%, var(--burgundy) 55%, var(--burgundy-2) 100%);
   box-shadow: 0 4px 16px rgba(16, 32, 64, 0.12);
 }
 
@@ -554,7 +641,7 @@
   margin-top: calc((5 - var(--level-step, 1)) * 18px);
   padding: 22px 18px 20px;
   overflow: hidden;
-  border-top: 4px solid var(--level-accent, var(--corporate));
+  border-top: 4px solid var(--level-accent, var(--burgundy));
 }
 
 .ras-level-card-top {
@@ -642,19 +729,27 @@
 }
 
 /* Teachers */
+.ras-teachers .ras-lead {
+  font-size: 18px;
+  margin-bottom: 44px;
+}
+
 .ras-teachers-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--ras-gap);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .ras-teacher-card {
-  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  min-height: 248px;
+  padding: 32px 28px 28px;
 }
 
 .ras-teacher-photo {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--navy-2), var(--burgundy));
   color: #fff;
@@ -663,28 +758,36 @@
   justify-content: center;
   font-family: var(--font-section-display);
   font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 14px;
+  font-size: clamp(26px, 2.2vw, 30px);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 28px rgba(16, 32, 64, 0.14);
 }
 
 .ras-teacher-name {
   font-family: var(--font-section-display);
-  font-size: 16px;
-  margin-bottom: 4px;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
   color: var(--navy-2);
 }
 
 .ras-teacher-lang {
-  font-size: 14px;
+  font-family: var(--font-section-display);
+  font-size: 17px;
   color: var(--burgundy);
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
 }
 
 .ras-teacher-focus {
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.45;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(16, 32, 64, 0.82);
+  line-height: 1.5;
 }
 
 /* Platform */
@@ -707,8 +810,8 @@
   gap: 16px;
   padding: 20px 24px;
   margin-bottom: 20px;
-  border-color: var(--gold);
-  background: linear-gradient(135deg, #fffdf8 0%, #fff 100%);
+  border-color: rgba(142, 26, 40, 0.22);
+  background: linear-gradient(135deg, #fff8f4 0%, #f8f9fc 50%, #ffffff 100%);
 }
 
 .ras-platform-price-label {
@@ -827,15 +930,15 @@
 }
 
 .ras-platform-mockup-bar span:nth-child(1) {
-  background: #ff6b6b;
+  background: var(--burgundy);
 }
 
 .ras-platform-mockup-bar span:nth-child(2) {
-  background: #f0c14d;
+  background: var(--navy-2);
 }
 
 .ras-platform-mockup-bar span:nth-child(3) {
-  background: #5a9e6e;
+  background: var(--line);
 }
 
 .ras-platform-mockup-url {
@@ -927,7 +1030,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--burgundy), var(--gold));
+  background: linear-gradient(90deg, var(--burgundy), var(--navy-2));
 }
 
 .ras-platform-mockup-cards {
@@ -945,11 +1048,11 @@
 }
 
 .ras-platform-mockup-mini.mock-exercise {
-  background: linear-gradient(135deg, rgba(111, 77, 184, 0.14), rgba(111, 77, 184, 0.06));
+  background: linear-gradient(135deg, rgba(16, 32, 64, 0.12), rgba(16, 32, 64, 0.05));
 }
 
 .ras-platform-mockup-mini.mock-vocab {
-  background: linear-gradient(135deg, rgba(31, 154, 171, 0.16), rgba(31, 154, 171, 0.06));
+  background: linear-gradient(135deg, rgba(142, 26, 40, 0.14), rgba(142, 26, 40, 0.06));
 }
 
 .ras-platform-chip {
@@ -1003,9 +1106,14 @@
   font-family: var(--font-section-display);
   font-size: clamp(38px, 4.6vw, 56px);
   font-weight: 700;
-  color: var(--gold);
+  background: linear-gradient(135deg, #ffffff 0%, var(--brand-gold-soft) 52%, var(--brand-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   line-height: 1;
   margin-bottom: 8px;
+  filter: drop-shadow(0 2px 10px rgba(208, 176, 106, 0.2));
 }
 
 .ras-stat-suffix {
@@ -1069,14 +1177,15 @@
   margin-bottom: 16px;
   padding: 8px 16px;
   border-radius: var(--ras-radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(208, 176, 106, 0.42);
+  background: linear-gradient(135deg, rgba(208, 176, 106, 0.18), rgba(255, 255, 255, 0.08));
   font-family: var(--font-section-display);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--brand-gold-soft);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .ras-corporate .ras-title {
@@ -1166,7 +1275,12 @@
   font-size: clamp(20px, 2.2vw, 26px);
   font-weight: 700;
   line-height: 1;
-  color: var(--gold);
+  background: linear-gradient(135deg, #ffffff 0%, var(--brand-gold-soft) 52%, var(--brand-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(208, 176, 106, 0.22));
 }
 
 .ras-corporate-perk-label {
@@ -1178,7 +1292,7 @@
 .ras-corporate-form {
   position: sticky;
   top: 100px;
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid var(--burgundy-2);
 }
 
 .ras-corporate-form-head {
@@ -1287,8 +1401,8 @@
   gap: 14px;
   padding: 18px 22px;
   margin-bottom: 24px;
-  border-color: var(--gold);
-  background: linear-gradient(135deg, #fffdf8 0%, #fff 100%);
+  border-color: rgba(142, 26, 40, 0.22);
+  background: linear-gradient(135deg, #fff8f4 0%, #f8f9fc 48%, #ffffff 100%);
 }
 
 .ras-pricing-discount-emoji {
@@ -1329,9 +1443,13 @@
 }
 
 .ras-price-card--featured {
-  border-color: var(--burgundy);
-  background: linear-gradient(180deg, #fff 0%, #fdf8f9 100%);
-  box-shadow: var(--ras-shadow-hover);
+  border-color: var(--brand-gold);
+  background:
+    radial-gradient(ellipse 70% 55% at 100% 0%, rgba(208, 176, 106, 0.12), transparent 58%),
+    linear-gradient(165deg, #ffffff 0%, #fdf6f7 42%, #fff9f0 100%);
+  box-shadow:
+    var(--shadow-premium-hover),
+    inset 0 1px 0 rgba(240, 220, 176, 0.45);
 }
 
 .ras-price-badge {
@@ -1340,13 +1458,16 @@
   right: 16px;
   padding: 5px 10px;
   border-radius: var(--ras-radius-pill);
-  background: var(--burgundy);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 232, 0.35) 0%, transparent 50%),
+    var(--gradient-burgundy);
   font-family: var(--font-section-display);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .ras-price-card-top {
@@ -1629,8 +1750,16 @@
   color: var(--gray);
 }
 
+.ras-final-cta {
+  background: transparent;
+}
+
 .ras-final-cta .ras-title__glass-main {
-  color: var(--navy-2);
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   text-shadow: none;
 }
 
@@ -1660,6 +1789,14 @@
   border-radius: 32px 32px 0 0;
   overflow: hidden;
   font-family: var(--font-section-body);
+}
+
+.ras-footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 40% at 50% 0%, rgba(168, 36, 52, 0.18), transparent 62%);
+  pointer-events: none;
 }
 
 .ras-footer > .ras-wrap {
@@ -1697,7 +1834,7 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
   font-size: clamp(34px, 4.2vw, 52px);
-  color: var(--gold);
+  color: #fff;
 }
 
 .ras-footer-cta {
@@ -1731,7 +1868,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--gold);
+  color: rgba(255, 255, 255, 0.72);
   margin-bottom: 14px;
 }
 
@@ -1760,7 +1897,7 @@
 }
 
 .ras-footer-links a:hover {
-  color: var(--gold);
+  color: var(--brand-white);
 }
 
 .ras-footer-contact-card {
@@ -1781,7 +1918,7 @@
 }
 
 .ras-footer-contact a:hover {
-  color: var(--gold);
+  color: var(--burgundy-2);
 }
 
 .ras-footer-contact-note {
@@ -1866,7 +2003,7 @@
 }
 
 .ras-footer-legal a:hover {
-  color: var(--gold);
+  color: var(--brand-white);
 }
 
 .ras-footer-credit {
@@ -1876,8 +2013,8 @@
   margin-top: 2px;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(208, 176, 106, 0.35);
-  background: rgba(208, 176, 106, 0.1);
+  border: 1px solid rgba(168, 36, 52, 0.4);
+  background: rgba(142, 26, 40, 0.14);
   font-size: 13px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.82);
@@ -1889,7 +2026,7 @@
 }
 
 .ras-footer-credit a {
-  color: var(--gold);
+  color: var(--burgundy-2);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: lowercase;
@@ -1909,9 +2046,12 @@
   }
 
   .ras-formats-grid,
-  .ras-teachers-grid,
   .ras-pricing-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ras-teachers-grid {
+    grid-template-columns: 1fr;
   }
 
   .ras-stats-grid {
@@ -2001,6 +2141,37 @@
   .ras-pricing-grid,
   .ras-stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ras-teacher-card {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 18px;
+    align-items: center;
+    min-height: 0;
+    padding: 24px 22px;
+  }
+
+  .ras-teacher-photo {
+    grid-row: 1 / 4;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 0;
+    font-size: 28px;
+  }
+
+  .ras-teacher-name {
+    font-size: 22px;
+  }
+
+  .ras-teacher-lang {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .ras-teacher-focus {
+    font-size: 16px;
   }
 
   .ras-levels-path {

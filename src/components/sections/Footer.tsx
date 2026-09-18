@@ -13,7 +13,7 @@ const FOOTER_NAV = [
 
 export function Footer() {
   return (
-    <footer className="ras-footer ras-bg-dark" id="contacts">
+    <footer className="ras-footer ras-bg-burgundy" id="contacts">
       <div className="ras-wrap">
         <div className="ras-footer-intro">
           <h2 className="ras-footer-headline">

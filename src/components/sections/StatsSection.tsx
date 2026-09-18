@@ -5,7 +5,7 @@ import { SectionReveal } from '../ui/SectionReveal';
 
 export function StatsSection() {
   return (
-    <section className="ras-section ras-stats ras-bg-dark" id="stats">
+    <section className="ras-section ras-stats ras-bg-burgundy" id="stats">
       <div className="ras-wrap">
         <SectionReveal>
           <SectionTitle main="результати" accent="у цифрах" light />

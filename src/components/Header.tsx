@@ -67,7 +67,11 @@ export function Header() {
       >
         <div className="nav-row">
           <Link href="/" className="logo" aria-label="На головну — Royal Academy School" onClick={closeMenu}>
-            <img src="/school-assets/logo.png" alt="Royal Academy School" />
+            <img src="/school-assets/logo.png" alt="" />
+            <span className="logo-text">
+              <span className="logo-text-line logo-text-line--main">Royal Academy</span>
+              <span className="logo-text-line logo-text-line--accent">School</span>
+            </span>
           </Link>
 
           <div className="nav-center nav-desktop-only">

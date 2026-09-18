@@ -10,14 +10,14 @@ main {
 }
 
 .header-btn--mobile {
-  min-height: 40px;
-  padding: 4px 4px 4px 14px;
-  font-size: 11px;
+  min-height: 38px;
+  padding: 4px 4px 4px 13px;
+  font-size: 10px;
   letter-spacing: 0.05em;
   flex-shrink: 0;
   max-width: 100%;
   justify-content: space-between;
-  min-width: 132px;
+  min-width: 128px;
 }
 
 .header-btn--mobile .header-btn-text {
@@ -26,9 +26,9 @@ main {
 }
 
 .header-btn--mobile .header-btn-arrow {
-  width: 28px;
-  height: 28px;
-  margin-left: 8px;
+  width: 26px;
+  height: 26px;
+  margin-left: 6px;
   flex-shrink: 0;
 }
 
@@ -89,8 +89,8 @@ main {
   .nav-row {
     width: 100%;
     max-width: 100%;
-    min-height: 64px;
-    padding: 8px 10px 8px 12px;
+    min-height: 68px;
+    padding: 9px 12px 9px 14px;
     gap: 10px;
     box-sizing: border-box;
   }
@@ -102,6 +102,14 @@ main {
 
   .logo img {
     height: 42px;
+  }
+
+  .logo-text-line--main {
+    font-size: 10px;
+  }
+
+  .logo-text-line--accent {
+    font-size: 15px;
   }
 
   .nav-right {
@@ -168,188 +176,6 @@ main {
     font-size: 64px;
   }
 
-  /* Hero — mobile: desktop-like layout, top-left, avoid face */
-  .hero {
-    align-items: flex-start;
-    --hero-prop-safe-top: 104px;
-    --hero-prop-safe-bottom: 180px;
-    --hero-prop-safe-x: 4px;
-  }
-
-  .hero-bg::after {
-    background: linear-gradient(
-      165deg,
-      rgba(6, 16, 28, 0.62) 0%,
-      rgba(6, 16, 28, 0.42) 28%,
-      rgba(6, 16, 28, 0.18) 48%,
-      rgba(6, 16, 28, 0.08) 62%,
-      rgba(6, 16, 28, 0.32) 100%
-    );
-  }
-
-  .hero-bg img {
-    object-position: 62% 14%;
-  }
-
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    min-height: 100dvh;
-    padding-top: 104px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .hero-content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 100%;
-    min-height: 0;
-  }
-
-  .hero-headline {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 0;
-    padding-right: 8px;
-    text-align: left;
-  }
-
-  .hero-actions {
-    position: relative;
-    z-index: 4;
-    width: 100%;
-    margin-top: auto;
-    padding-top: clamp(48px, 12vh, 88px);
-    padding-bottom: 8px;
-  }
-
-  .hero-line--sans {
-    font-size: clamp(34px, 9.2vw, 52px);
-  }
-
-  .hero-line--sans:first-child {
-    justify-self: start;
-    margin-left: clamp(0px, 3vw, 20px);
-  }
-
-  .hero-line--serif {
-    font-size: clamp(72px, 19.5vw, 118px);
-    margin: -6px 0 0;
-    max-width: 100%;
-  }
-
-  .hero-line--offset {
-    justify-self: end;
-    margin-top: -4px;
-    margin-right: clamp(0px, 4vw, 28px);
-  }
-
-  .hero-desc {
-    max-width: min(100%, 380px);
-    margin: 0 0 22px;
-    font-size: clamp(17px, 4.6vw, 21px);
-    font-weight: 600;
-    line-height: 1.6;
-    color: #fff;
-    text-align: left;
-    padding: 0;
-  }
-
-  .hero-cta {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    justify-content: space-between;
-    padding: 10px 10px 10px 24px;
-    font-size: 14px;
-  }
-
-  .hero-cta-text {
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    white-space: normal;
-    text-align: left;
-  }
-
-  .hero-cta-arrow {
-    width: 52px;
-    height: 52px;
-  }
-
-  .hero-prop {
-    display: block;
-    opacity: 0.88;
-    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.28));
-    animation: side-fade 0.9s ease both;
-  }
-
-  .hero-prop--glasses {
-    top: clamp(318px, 44vh, 390px);
-    left: -14px;
-    right: auto;
-    bottom: auto;
-    transform: scale(0.62) rotate(-10deg);
-    transform-origin: left center;
-    animation-delay: 0.1s;
-  }
-
-  .hero-prop--photo {
-    top: clamp(332px, 46vh, 404px);
-    right: -14px;
-    left: auto;
-    bottom: auto;
-    transform: scale(0.58) rotate(11deg);
-    transform-origin: right center;
-    animation-delay: 0.22s;
-  }
-
-  .hero-prop--desk {
-    top: auto;
-    bottom: clamp(208px, 31vh, 290px);
-    left: -14px;
-    right: auto;
-    transform: scale(0.64) rotate(-6deg);
-    transform-origin: left bottom;
-    animation-delay: 0.34s;
-  }
-
-  .hero-prop--laptop {
-    top: auto;
-    bottom: clamp(200px, 29vh, 278px);
-    right: -14px;
-    left: auto;
-    transform: scale(0.62) rotate(8deg);
-    transform-origin: right bottom;
-    animation-delay: 0.46s;
-  }
-
-  .hero-prop-frame {
-    inset: -10px;
-  }
-
-  .hero-prop-frame span {
-    width: 16px;
-    height: 16px;
-  }
-
-  .hero-polaroid {
-    width: 112px;
-    padding: 8px 8px 24px;
-  }
-
-  .hero-polaroid img {
-    height: 92px;
-  }
-
   /* Levels — fix flex/grid conflict from 1100px breakpoint */
   .ras-levels-cards {
     display: flex;
@@ -361,7 +187,7 @@ main {
     padding-right: 0;
     padding-bottom: 0;
     border-left: 3px solid;
-    border-image: linear-gradient(180deg, var(--corporate), var(--adults), var(--burgundy)) 1;
+    border-image: linear-gradient(180deg, var(--navy-2), var(--burgundy), var(--burgundy-2)) 1;
   }
 
   .ras-levels-cards > * {
@@ -562,17 +388,26 @@ main {
     height: 38px;
   }
 
+  .logo-text-line--main {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+
+  .logo-text-line--accent {
+    font-size: 14px;
+  }
+
   .header-btn--mobile {
     min-height: 36px;
-    min-width: 124px;
-    padding: 3px 3px 3px 12px;
-    font-size: 10px;
+    min-width: 120px;
+    padding: 3px 3px 3px 11px;
+    font-size: 9.5px;
   }
 
   .header-btn--mobile .header-btn-arrow {
-    width: 26px;
-    height: 26px;
-    margin-left: 6px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
   }
 
   .burger {
@@ -614,93 +449,38 @@ main {
     padding: 64px 0;
   }
 
-  /* Hero — small phones */
-  .hero {
-    border-radius: 0 0 24px 24px;
-  }
-
   .hero-inner {
-    padding-top: 96px;
-    padding-bottom: 32px;
+    padding-top: 104px;
+    padding-bottom: 72px;
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .hero {
-    --hero-prop-safe-bottom: 168px;
+  .hero-transition-fade {
+    height: clamp(88px, 20vh, 160px);
   }
 
-  .hero-actions {
-    padding-top: clamp(40px, 10vh, 72px);
-    padding-bottom: 12px;
+  .hero-wave svg {
+    height: clamp(36px, 8vw, 60px);
   }
 
-  .hero-line--sans {
-    font-size: clamp(32px, 8.8vw, 44px);
-  }
-
-  .hero-line--serif {
-    font-size: clamp(64px, 18vw, 104px);
-  }
-
-  .hero-line--offset {
-    margin-right: clamp(0px, 2vw, 16px);
+  .hero-title {
+    font-size: clamp(30px, 8.2vw, 44px);
   }
 
   .hero-desc {
-    max-width: min(100%, 340px);
-    font-size: 16px;
-    margin-bottom: 22px;
+    font-size: 15px;
   }
 
-  .hero-bg img {
-    object-position: 64% 12%;
-  }
-
-  .hero-cta {
-    padding: 10px 10px 10px 22px;
-  }
-
-  .hero-cta-text {
-    font-size: 13px;
-  }
-
-  .hero-cta-arrow {
-    width: 50px;
-    height: 50px;
-  }
-
-  .hero-prop--glasses {
-    top: clamp(296px, 42vh, 360px);
-    transform: scale(0.56) rotate(-10deg);
-  }
-
-  .hero-prop--photo {
-    top: clamp(308px, 44vh, 372px);
-    transform: scale(0.54) rotate(11deg);
-  }
-
-  .hero-prop--desk {
-    bottom: clamp(196px, 29vh, 272px);
-    transform: scale(0.58) rotate(-6deg);
-  }
-
-  .hero-prop--laptop {
-    bottom: clamp(188px, 27vh, 264px);
-    transform: scale(0.56) rotate(8deg);
-  }
-
-  .hero-polaroid {
-    width: 104px;
-  }
-
-  .hero-polaroid img {
-    height: 84px;
+  .hero-btn--primary {
+    padding: 15px 24px;
+    font-size: 12px;
   }
 
   /* Programs */
   .programs {
-    padding: 64px 0;
+    margin-top: clamp(-32px, -7vw, -52px);
+    padding: calc(48px + clamp(24px, 5vw, 40px)) 0 64px;
   }
 
   .wrap {
@@ -772,25 +552,3 @@ main {
   }
 }
 
-/* Very small */
-@media (max-width: 380px) {
-  .hero-prop--glasses {
-    top: clamp(278px, 40vh, 340px);
-    transform: scale(0.5) rotate(-10deg);
-  }
-
-  .hero-prop--photo {
-    top: clamp(290px, 42vh, 352px);
-    transform: scale(0.48) rotate(11deg);
-  }
-
-  .hero-prop--desk {
-    bottom: clamp(184px, 27vh, 252px);
-    transform: scale(0.52) rotate(-6deg);
-  }
-
-  .hero-prop--laptop {
-    bottom: clamp(176px, 25vh, 244px);
-    transform: scale(0.5) rotate(8deg);
-  }
-}
