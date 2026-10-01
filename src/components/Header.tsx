@@ -6,11 +6,12 @@ import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
 import { lockScroll, unlockScroll } from '@/lib/scrollLock';
 
 const NAV_LINKS = [
-  { href: '#programs', label: 'Програми' },
-  { href: '#languages', label: 'Мови' },
-  { href: '#why-us', label: 'Про компанію' },
-  { href: '#teachers', label: 'Викладачі' },
-  { href: '#faq', label: 'Блог / Корисне' },
+  { href: '#why-us', label: 'Про нас' },
+  { href: '#programs', label: 'Курси' },
+  { href: '#kids', label: 'Діти' },
+  { href: '#adults', label: 'Дорослі' },
+  { href: '#corporate', label: 'Корпоративним клієнтам' },
+  { href: '#formats', label: 'Блог' },
   { href: '#contacts', label: 'Контакти' },
 ] as const;
 
@@ -71,6 +72,7 @@ export function Header() {
             <span className="logo-text">
               <span className="logo-text-line logo-text-line--main">Royal Academy</span>
               <span className="logo-text-line logo-text-line--accent">School</span>
+              <span className="logo-text-tagline">Education without borders</span>
             </span>
           </Link>
 
@@ -85,32 +87,26 @@ export function Header() {
           </div>
 
           <div className="nav-right">
-            <div className="nav-cta-group nav-desktop-only">
-              <LeadFormTrigger
-                intent="level-test"
-                className="ras-btn ras-btn-outline header-btn"
-                onClick={closeMenu}
-              >
-                Визначити рівень
-              </LeadFormTrigger>
-              <LeadFormTrigger
-                intent="consultation"
-                className="ras-btn ras-btn-primary header-btn header-btn--with-arrow"
-                onClick={closeMenu}
-              >
-                <span className="header-btn-text">Підібрати програму</span>
-                <HeaderCtaArrow />
-              </LeadFormTrigger>
-            </div>
-
             <LeadFormTrigger
               intent="consultation"
-              className="ras-btn ras-btn-primary header-btn header-btn--mobile header-btn--with-arrow nav-mobile-only"
+              className="ras-btn header-btn header-btn--signup header-btn--with-arrow header-btn--mobile nav-mobile-only"
               onClick={closeMenu}
             >
               <span className="header-btn-text">Записатися</span>
-              <HeaderCtaArrow size={14} />
+              <HeaderCtaArrow size={16} />
             </LeadFormTrigger>
+
+            <div className="nav-cta-group nav-desktop-only">
+              <span className="header-lang" aria-label="Мова">UA</span>
+              <LeadFormTrigger
+                intent="consultation"
+                className="ras-btn header-btn header-btn--signup header-btn--with-arrow"
+                onClick={closeMenu}
+              >
+                <span className="header-btn-text">Записатися</span>
+                <HeaderCtaArrow />
+              </LeadFormTrigger>
+            </div>
 
             <button
               type="button"
@@ -138,18 +134,11 @@ export function Header() {
           ))}
           <div className="nav-mobile-actions">
             <LeadFormTrigger
-              intent="level-test"
-              className="ras-btn ras-btn-outline"
-              onClick={closeMenu}
-            >
-              Визначити рівень
-            </LeadFormTrigger>
-            <LeadFormTrigger
               intent="consultation"
-              className="ras-btn ras-btn-primary header-btn--with-arrow"
+              className="ras-btn header-btn--signup header-btn--with-arrow"
               onClick={closeMenu}
             >
-              <span className="header-btn-text">Підібрати програму</span>
+              <span className="header-btn-text">Записатися</span>
               <HeaderCtaArrow />
             </LeadFormTrigger>
           </div>

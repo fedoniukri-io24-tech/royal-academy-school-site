@@ -22,11 +22,11 @@ export function SectionReveal({
 
   return (
     <motion.div
-      className={className}
+      className={className ? `section-reveal ${className}` : 'section-reveal'}
       initial={initial}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       transition={{ duration: 0.55, delay }}
-      viewport={{ once: true, amount: 0.12 }}
+      viewport={{ once: true, amount: 0.01, margin: '0px 0px -60px 0px' }}
     >
       {children}
     </motion.div>

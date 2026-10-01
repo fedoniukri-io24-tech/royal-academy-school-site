@@ -56,6 +56,86 @@ export const LANGUAGES = [
   },
 ];
 
+export const WHY_US_PILLARS = [
+  {
+    id: 'global',
+    label: 'Міжнародний підхід',
+    description: 'Сучасна освіта та глобальні можливості для кожного.',
+  },
+  {
+    id: 'teachers',
+    label: 'Досвідчені викладачі',
+    description: 'Професіонали з міжнародною практикою.',
+  },
+  {
+    id: 'results',
+    label: 'Реальні результати',
+    description: 'Мова як інструмент для життя, навчання та карʼєри.',
+  },
+  {
+    id: 'community',
+    label: 'Спільнота, що надихає',
+    description: 'Підтримка, мотивація та нові можливості.',
+  },
+] as const;
+
+export const PROGRAM_DIRECTIONS = [
+  {
+    id: 'kids',
+    tag: 'ДІТИ',
+    sub: 'Великі можливості з дитинства',
+    title: 'Великий світ починається з цікавості',
+    image: '/school-assets/programs/kids.png',
+    width: 590,
+    height: 805,
+    href: '#kids',
+  },
+  {
+    id: 'adults',
+    tag: 'ДОРОСЛІ',
+    sub: 'Впевненість у будь-якій ситуації',
+    title: 'Більше можливостей для яскравішого завтра',
+    image: '/school-assets/programs/adults.png',
+    width: 577,
+    height: 803,
+    href: '#adults',
+  },
+  {
+    id: 'corporate',
+    tag: 'КОРПОРАТИВНЕ НАВЧАННЯ',
+    sub: 'Сильні команди без кордонів',
+    title: 'Навчання без кордонів. Для сильніших команд',
+    image: '/school-assets/programs/corporate.png',
+    width: 598,
+    height: 804,
+    href: '#corporate',
+  },
+] as const;
+
+export const FORMAT_SHOWCASE = [
+  {
+    id: 'individual',
+    title: 'Individual',
+    text: 'Персональна програма під ваші цілі.',
+    href: '#contacts',
+    image: '/school-assets/format-individual.jpg',
+  },
+  {
+    id: 'group',
+    title: 'Group',
+    text: 'Ефективне навчання в міні-групах.',
+    href: '#contacts',
+    image: '/school-assets/format-group.jpg',
+  },
+  {
+    id: 'corporate',
+    title: 'Corporate',
+    text: 'Рішення для вашої команди.',
+    href: '#contacts',
+    image: '/school-assets/format-corporate.jpg',
+  },
+] as const;
+
 export const WHY_US = [
   {
     titleSans: 'комунікативна',

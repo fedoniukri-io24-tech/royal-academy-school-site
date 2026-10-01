@@ -1,0 +1,158 @@
+/* Home landing — mobile (loads last; wins over global/responsive) */
+
+@media (max-width: 900px) {
+  #ras-site.landing-page .site-header {
+    padding: 10px 12px;
+  }
+
+  #ras-site.landing-page .nav-row {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #ras-site.landing-page .logo-text-tagline {
+    display: none;
+  }
+
+  #ras-site.landing-page .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  #ras-site.landing-page .program-card {
+    min-height:  min(68svh, 480px);
+    max-height: 520px;
+    padding: 22px 18px 20px;
+  }
+
+  #ras-site.landing-page .programs-landing-title,
+  #ras-site.landing-page .ras-why-mock-title,
+  #ras-site.landing-page .ras-mock-head__title {
+    font-size: clamp(26px, 7vw, 34px);
+  }
+
+  #ras-site.landing-page .programs-mock-nav {
+    display: none;
+  }
+
+  #ras-site.landing-page .ras-formats-mock-head,
+  #ras-site.landing-page .programs-mock-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  #ras-site.landing-page .ras-formats-mock-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #ras-site.landing-page .ras-formats-mock-list > .section-reveal {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #ras-site.landing-page .ras-format-mock-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 196px;
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  #ras-site.landing-page .ras-format-mock-copy {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 54%;
+    min-height: 152px;
+    padding: 0 10px 0 0;
+  }
+
+  #ras-site.landing-page .ras-format-mock-title {
+    font-size: clamp(20px, 5.2vw, 26px);
+    margin-bottom: 8px;
+  }
+
+  #ras-site.landing-page .ras-format-mock-text {
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.5;
+    max-width: none;
+    margin-bottom: 14px;
+  }
+
+  #ras-site.landing-page .ras-format-mock-btn {
+    padding: 9px 14px;
+    font-size: 10px;
+  }
+
+  #ras-site.landing-page .ras-format-mock-visual {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 46%;
+    margin: 0;
+    min-height: 100%;
+  }
+
+  #ras-site.landing-page .ras-format-mock-card--individual .ras-format-mock-visual::before {
+    background: linear-gradient(90deg, #faf6ee 0%, rgba(250, 246, 238, 0.9) 14%, transparent 40%);
+  }
+
+  #ras-site.landing-page .ras-format-mock-card--group .ras-format-mock-visual::before {
+    background: linear-gradient(90deg, #faf7fb 0%, rgba(250, 247, 251, 0.9) 14%, transparent 40%);
+  }
+
+  #ras-site.landing-page .ras-format-mock-card--corporate .ras-format-mock-visual::before {
+    background: linear-gradient(90deg, #f4f8fc 0%, rgba(244, 248, 252, 0.9) 14%, transparent 40%);
+  }
+
+  #ras-site.landing-page .ras-format-mock-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #ras-site.landing-page .ras-footer-mock-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #ras-site.landing-page .ras-footer-mock-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #ras-site.landing-page .ras-footer-mock-contacts {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  #ras-site.landing-page .logo-text-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  #ras-site.landing-page .logo-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #ras-site.landing-page .program-card {
+    min-height: 440px;
+  }
+}

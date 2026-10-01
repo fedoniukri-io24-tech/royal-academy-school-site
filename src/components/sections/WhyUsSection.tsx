@@ -1,31 +1,37 @@
-import { WHY_US } from '@/data/homeContent';
-import { SectionTitle } from '../ui/SectionTitle';
+import Link from 'next/link';
+import { WHY_US_PILLARS } from '@/data/homeContent';
 import { SectionReveal } from '../ui/SectionReveal';
+import { WhyUsIcon } from './WhyUsIcons';
 
 export function WhyUsSection() {
   return (
-    <section className="ras-section ras-why ras-bg-white" id="why-us">
-      <div className="ras-wrap ras-why-wrap">
-        <SectionReveal>
-          <SectionTitle main="Чому Royal Academy" accent="School" />
-        </SectionReveal>
-
-        <div className="ras-carousel ras-why-track">
-          {WHY_US.map((item, i) => (
-            <SectionReveal key={item.titleSans} delay={i * 0.06} axis="x" distance={40}>
-              <article className="ras-why-card ras-card-soft">
-                <h3 className="ras-card-title-split">
-                  <span className="ras-card-title-sans">{item.titleSans}</span>
-                  <span className="ras-card-title-serif">{item.titleSerif}</span>
-                </h3>
-                <div className="ras-why-card-body">
-                  <p className="ras-why-card-text">{item.text}</p>
-                  <span className="ras-why-emoji ras-emoji-deco" aria-hidden="true">{item.emoji}</span>
-                </div>
-              </article>
-            </SectionReveal>
-          ))}
+    <section className="ras-section ras-why-mock landing-section-accent" id="why-us">
+      <div className="ras-why-mock-bg" aria-hidden="true" />
+      <div className="ras-wrap ras-why-mock-wrap">
+        <div className="ras-why-mock-head">
+          <header className="ras-mock-head ras-mock-head--left">
+            <span className="ras-landing-rule" aria-hidden="true" />
+            <h2 className="ras-mock-head__title">Чому саме ми</h2>
+          </header>
+          <Link href="#contacts" className="ras-why-mock-more">
+            Більше про нас
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
+
+        <ul className="ras-why-pillars">
+          {WHY_US_PILLARS.map((item, i) => (
+            <li key={item.id} className="ras-why-pillar">
+              <SectionReveal delay={i * 0.04}>
+                <span className="ras-why-pillar-icon">
+                  <WhyUsIcon id={item.id} />
+                </span>
+                <h3 className="ras-why-pillar-title">{item.label}</h3>
+                <p className="ras-why-pillar-desc">{item.description}</p>
+              </SectionReveal>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

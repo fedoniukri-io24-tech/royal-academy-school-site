@@ -77,9 +77,9 @@
 .ras-title__main,
 .ras-title__accent {
   display: block;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-section-display);
+  font-style: normal;
+  font-weight: 600;
   font-size: var(--ras-title-accent);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -104,9 +104,9 @@
 
 .ras-title__glass-main {
   display: block;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-section-display);
+  font-style: normal;
+  font-weight: 600;
   font-size: var(--ras-title-glass);
   line-height: 1.08;
   letter-spacing: -0.02em;

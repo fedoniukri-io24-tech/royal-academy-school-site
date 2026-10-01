@@ -11,6 +11,10 @@ import '../styles/not-found.css';
 import '../styles/legal-page.css';
 import '../styles/lead-form.css';
 import '../styles/intro-splash.css';
+import '../styles/mockup-sections.css';
+import '../styles/landing-mobile.css';
+import '../styles/hero-landing.css';
+import '../styles/landing-match.css';
 
 export const metadata: Metadata = createRootMetadata();
 
@@ -24,14 +28,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={SITE.language}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@300;400;500;600;700;800;900&family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body>
         <SkipLink />
         <Providers>{children}</Providers>

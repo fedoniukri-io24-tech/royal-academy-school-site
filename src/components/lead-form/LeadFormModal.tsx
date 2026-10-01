@@ -66,6 +66,17 @@ export function LeadFormModal() {
 
         {submitted ? (
           <div className="lead-form-success">
+            <span className="lead-form-success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                <path
+                  d="M5 12.5l5 5L19 7"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
             <p className="lead-form-success-title">Дякуємо!</p>
             <p className="lead-form-success-text">
               Ми отримали вашу заявку і зв&apos;яжемося з вами найближчим часом.
@@ -87,7 +98,14 @@ export function LeadFormModal() {
           </div>
         ) : (
           <>
-            <h2 id={titleId} className="lead-form-title">Зв&apos;язатися з нами</h2>
+            <header className="lead-form-head">
+              <p className="lead-form-kicker">{INTENT_LABELS[intent]}</p>
+              <span className="lead-form-rule" aria-hidden="true" />
+              <h2 id={titleId} className="lead-form-title">Зв&apos;язатися з нами</h2>
+              <p className="lead-form-lead">
+                Залиште контакти — ми передзвонимо та допоможемо обрати програму.
+              </p>
+            </header>
 
             <form className="lead-form" onSubmit={handleSubmit}>
               <input type="hidden" name="intent" value={INTENT_LABELS[intent]} />
@@ -98,7 +116,7 @@ export function LeadFormModal() {
                   ref={firstFieldRef}
                   type="text"
                   name="name"
-                  placeholder="ім'я"
+                  placeholder="Ім'я"
                   autoComplete="name"
                   required
                 />
@@ -109,7 +127,7 @@ export function LeadFormModal() {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="телефон"
+                  placeholder="Телефон"
                   autoComplete="tel"
                   required
                 />
@@ -120,7 +138,7 @@ export function LeadFormModal() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="пошта"
+                  placeholder="Пошта"
                   autoComplete="email"
                   required
                 />
@@ -143,18 +161,16 @@ export function LeadFormModal() {
             </form>
 
             <div className="lead-form-alt">
-              <p className="lead-form-alt-label">Або</p>
-              <p className="lead-form-alt-links">
-                Написати нам у{' '}
-                <a
-                  href={SITE_CONTACTS.instagram.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="lead-form-alt-link lead-form-alt-link--instagram"
-                >
-                  {SITE_CONTACTS.instagram.label}
-                </a>
-              </p>
+              <p className="lead-form-alt-label">Або напишіть нам</p>
+              <a
+                href={SITE_CONTACTS.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lead-form-alt-link"
+              >
+                {SITE_CONTACTS.instagram.label}
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
           </>
         )}
