@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { createRootMetadata } from '@/lib/seo';
 import { SITE } from '@/config/site';
 import { SkipLink } from '@/components/seo/SkipLink';
+import { AppChrome } from '@/components/layout/AppChrome';
 import { Providers } from '@/components/lead-form/Providers';
 import '../styles/global.css';
 import '../styles/design-system.css';
@@ -15,6 +16,8 @@ import '../styles/mockup-sections.css';
 import '../styles/landing-mobile.css';
 import '../styles/hero-landing.css';
 import '../styles/landing-match.css';
+import '../styles/site-pages.css';
+import '../styles/site-pages-premium.css';
 
 export const metadata: Metadata = createRootMetadata();
 
@@ -30,7 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang={SITE.language}>
       <body>
         <SkipLink />
-        <Providers>{children}</Providers>
+        <Providers>
+          <AppChrome>{children}</AppChrome>
+        </Providers>
       </body>
     </html>
   );

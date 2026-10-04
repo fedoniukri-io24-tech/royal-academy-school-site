@@ -13,7 +13,7 @@ export function WhyUsSection() {
             <span className="ras-landing-rule" aria-hidden="true" />
             <h2 className="ras-mock-head__title">Чому саме ми</h2>
           </header>
-          <Link href="#contacts" className="ras-why-mock-more">
+          <Link href="/about" className="ras-why-mock-more">
             Більше про нас
             <span aria-hidden="true">→</span>
           </Link>

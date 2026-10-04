@@ -1,0 +1,321 @@
+/* =============================================================================
+   Внутрішні сторінки — premium parity з головною
+   ============================================================================= */
+
+#ras-site .site-page .site-page-main {
+  position: relative;
+  isolation: isolate;
+}
+
+#ras-site .site-page .site-page-body {
+  position: relative;
+  padding: clamp(24px, 4vw, 40px) 0 clamp(72px, 9vw, 112px);
+}
+
+#ras-site .site-page .site-page-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: min(420px, 55vh);
+  background: url('/school-assets/hero-landmarks.jpg') center 22% / cover no-repeat;
+  opacity: 0.035;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 85%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 85%);
+}
+
+#ras-site .site-page .site-page-body > .ras-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+#ras-site .site-page .ras-landing-rule {
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 0 0 16px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #c9a962 0%, #e8d4a8 55%, rgba(201, 169, 98, 0.12) 100%);
+  flex-shrink: 0;
+}
+
+#ras-site .site-page .ras-mock-head__title,
+#ras-site .site-page .site-block__title {
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #102040;
+}
+
+#ras-site .site-page .landing-section-accent {
+  position: relative;
+}
+
+#ras-site .site-page .landing-section-accent > .section-reveal,
+#ras-site .site-page .landing-section-accent > .ras-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Вертикальна смуга на внутрішніх блоках вимкнена — налазила на текст */
+#ras-site .site-page .site-block.landing-section-accent::before,
+#ras-site .site-page .site-enroll-path.landing-section-accent::before,
+#ras-site .site-page .site-guide.landing-section-accent::before {
+  display: none;
+}
+
+/* Повноекранні секції (directions тощо) — смуга зліва від контенту, не поверх нього */
+#ras-site .site-page .site-directions.landing-section-accent::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 0;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(201, 169, 98, 0.55) 25%,
+    rgba(142, 26, 40, 0.35) 55%,
+    transparent 100%
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Розділювачі секцій — лише gap стеку, без додаткових ліній під контентом */
+#ras-site .site-page .landing-section-hairline::after,
+#ras-site .site-page .site-block.landing-section-hairline::after,
+#ras-site .site-page .site-enroll-path.landing-section-hairline::after,
+#ras-site .site-page .site-guide.landing-section-hairline::after,
+#ras-site .site-page .site-directions.landing-section-hairline::after {
+  content: none;
+  display: none;
+}
+
+#ras-site .site-page .site-block-panel {
+  position: relative;
+  padding: clamp(26px, 4vw, 40px) clamp(22px, 4vw, 36px);
+  border-radius: 28px;
+  border: 1px solid rgba(228, 225, 218, 0.95);
+  background: linear-gradient(165deg, #ffffff 0%, #fafaf9 48%, #f7f5f0 100%);
+  box-shadow:
+    0 24px 64px rgba(16, 32, 64, 0.07),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  overflow: hidden;
+}
+
+#ras-site .site-page .site-block-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a962 0%, #e8d4a8 52%, rgba(201, 169, 98, 0.15) 100%);
+  pointer-events: none;
+}
+
+#ras-site .site-page .site-block--band .site-block-panel {
+  background: linear-gradient(125deg, #ffffff 0%, #faf6ee 42%, #f5f0e6 100%);
+}
+
+#ras-site .site-page .site-block--plain .site-block-panel::before {
+  display: none;
+}
+
+#ras-site .site-page .site-page-stack {
+  gap: clamp(40px, 5.5vw, 72px);
+}
+
+#ras-site .site-page .site-languages-hub.site-page-stack {
+  gap: clamp(36px, 5vw, 56px);
+}
+
+#ras-site .site-page .site-directions.landing-section-accent {
+  padding-left: 14px;
+  padding-bottom: 8px;
+}
+
+#ras-site .site-page .site-directions .directions-head {
+  margin-bottom: 28px;
+}
+
+#ras-site .site-page .direction-card {
+  padding-left: 2px;
+}
+
+#ras-site .site-page .direction-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, transparent, currentColor 35%, currentColor 65%, transparent);
+  opacity: 0.85;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#ras-site .site-page .direction-card--gold::after {
+  color: #d0b06a;
+}
+
+#ras-site .site-page .direction-card--burgundy::after {
+  color: #8e1a28;
+}
+
+#ras-site .site-page .direction-card--blue::after {
+  color: #2a5ea8;
+}
+
+#ras-site .site-page .ras-format-mock-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+#ras-site .site-page .ras-format-mock-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.1);
+}
+
+#ras-site .site-page .ras-why-pillar {
+  border-right: 1px solid transparent;
+  border-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(201, 169, 98, 0.55) 28%,
+      rgba(201, 169, 98, 0.55) 72%,
+      transparent 100%
+    )
+    1;
+}
+
+#ras-site .site-page .site-aside-photo {
+  border: 1px solid rgba(201, 169, 98, 0.28);
+  box-shadow:
+    0 24px 56px rgba(16, 32, 64, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+#ras-site .site-page .site-guide-step,
+#ras-site .site-page .site-tariff-card,
+#ras-site .site-page .site-topic-card,
+#ras-site .site-page .site-contact-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+#ras-site .site-page .site-guide-step:hover,
+#ras-site .site-page .site-tariff-card:hover,
+#ras-site .site-page .site-topic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(16, 32, 64, 0.1);
+}
+
+#ras-site .site-page .site-page-cta {
+  border: 1px solid rgba(201, 169, 98, 0.25);
+  box-shadow: 0 28px 64px rgba(16, 32, 64, 0.18);
+}
+
+#ras-site .site-page .site-about-nav__link {
+  background: linear-gradient(180deg, #fff 0%, #fafaf9 100%);
+  box-shadow: 0 4px 14px rgba(16, 32, 64, 0.05);
+}
+
+#ras-site .site-page .hero-btn--primary {
+  background:
+    linear-gradient(180deg, rgba(232, 212, 168, 0.22) 0%, transparent 42%),
+    var(--gradient-burgundy);
+  color: #fff;
+  border-radius: 999px;
+  padding: 16px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  box-shadow:
+    0 10px 24px rgba(90, 12, 24, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
+}
+
+#ras-site .site-page .hero-btn--primary:hover {
+  background:
+    linear-gradient(180deg, rgba(232, 212, 168, 0.28) 0%, transparent 46%),
+    var(--gradient-burgundy-hover);
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 28px rgba(90, 12, 24, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+#ras-site .site-page .site-meta-item {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(228, 225, 218, 0.9);
+}
+
+#ras-site .site-page .site-step-list li {
+  padding: 18px 0;
+}
+
+#ras-site .site-page .site-step-list--premium li {
+  padding: 16px 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(16, 32, 64, 0.08);
+}
+
+#ras-site .site-page .site-step-list--premium li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#ras-site .site-page .site-faq-list .ras-card-surface {
+  border-radius: 18px;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 248, 243, 0.88) 100%);
+  border: 1px solid rgba(228, 225, 218, 0.95);
+  box-shadow: 0 10px 28px rgba(16, 32, 64, 0.05);
+}
+
+#ras-site .site-page .site-faq-list .ras-accordion.open.ras-card-surface {
+  background: linear-gradient(165deg, #ffffff 0%, #faf7f0 100%);
+  border-color: rgba(201, 169, 98, 0.35);
+}
+
+#ras-site .site-page .site-enroll-path__shell {
+  box-shadow: 0 20px 50px rgba(16, 32, 64, 0.06);
+}
+
+#ras-site .site-page .site-enroll-path__intro {
+  padding-right: clamp(0px, 2vw, 12px);
+}
+
+@media (max-width: 640px) {
+  #ras-site .site-page .site-directions.landing-section-accent::before {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  #ras-site .site-page .ras-why-pillar {
+    border-right: none;
+    border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+    padding-bottom: 20px;
+  }
+}

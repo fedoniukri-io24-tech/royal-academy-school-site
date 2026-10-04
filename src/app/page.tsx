@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
 import { HomeJsonLd } from '@/components/seo/HomeJsonLd';
-import { Header } from '@/components/Header';
+import { PageShell } from '@/components/layout/PageShell';
 import { Hero } from '@/components/Hero';
 import { Programs } from '@/components/Programs';
 import { WhyUsSection } from '@/components/sections/WhyUsSection';
@@ -16,8 +16,7 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
-      <div id="ras-site" className="landing-page">
-        <Header />
+      <PageShell variant="landing">
         <main id="main-content">
           <Hero />
           <Programs />
@@ -25,7 +24,7 @@ export default function HomePage() {
           <FormatsSection />
         </main>
         <Footer />
-      </div>
+      </PageShell>
     </>
   );
 }

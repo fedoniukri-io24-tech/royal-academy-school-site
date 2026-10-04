@@ -3,19 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
+import { HEADER_CTA, MAIN_NAV_LINKS } from '@/config/navigation';
 import { lockScroll, unlockScroll } from '@/lib/scrollLock';
-
-const NAV_LINKS = [
-  { href: '#why-us', label: 'Про нас' },
-  { href: '#programs', label: 'Курси' },
-  { href: '#kids', label: 'Діти' },
-  { href: '#adults', label: 'Дорослі' },
-  { href: '#corporate', label: 'Корпоративним клієнтам' },
-  { href: '#formats', label: 'Блог' },
-  { href: '#contacts', label: 'Контакти' },
-] as const;
-
-const SCROLL_OFFSET = 48;
 
 function HeaderCtaArrow({ size = 18 }: { size?: number }) {
   return (
@@ -35,7 +24,6 @@ function HeaderCtaArrow({ size = 18 }: { size?: number }) {
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (menuOpen) {
@@ -45,15 +33,17 @@ export function Header() {
     return undefined;
   }, [menuOpen]);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > SCROLL_OFFSET);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen((open) => !open);
+
+  /* Завжди solid-стиль — без зміни контенту/стану при скролі */
+  const headerClass = [
+    'site-header',
+    'header--scrolled',
+    menuOpen ? 'header--menu-open' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <>
@@ -63,25 +53,25 @@ export function Header() {
         aria-hidden={!menuOpen}
       />
 
-      <header
-        className={`site-header${scrolled ? ' header--scrolled' : ''}${menuOpen ? ' header--menu-open' : ''}`}
-      >
+      <header className={headerClass}>
         <div className="nav-row">
           <Link href="/" className="logo" aria-label="На головну — Royal Academy School" onClick={closeMenu}>
             <img src="/school-assets/logo.png" alt="" />
             <span className="logo-text">
               <span className="logo-text-line logo-text-line--main">Royal Academy</span>
               <span className="logo-text-line logo-text-line--accent">School</span>
-              <span className="logo-text-tagline">Education without borders</span>
+              <span className="logo-text-tagline logo-text-tagline--header">
+                Світ відкритий, коли ти знаєш мови
+              </span>
             </span>
           </Link>
 
           <div className="nav-center nav-desktop-only">
-            <nav className="nav-links" aria-label="Головна навігація">
-              {NAV_LINKS.map((link) => (
-                <a key={`${link.href}-${link.label}`} href={link.href} onClick={closeMenu}>
+            <nav className="nav-links nav-links--main" aria-label="Головна навігація">
+              {MAIN_NAV_LINKS.map((link) => (
+                <Link key={link.href} href={link.href} onClick={closeMenu}>
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
@@ -92,18 +82,17 @@ export function Header() {
               className="ras-btn header-btn header-btn--signup header-btn--with-arrow header-btn--mobile nav-mobile-only"
               onClick={closeMenu}
             >
-              <span className="header-btn-text">Записатися</span>
+              <span className="header-btn-text">{HEADER_CTA.program.label}</span>
               <HeaderCtaArrow size={16} />
             </LeadFormTrigger>
 
             <div className="nav-cta-group nav-desktop-only">
-              <span className="header-lang" aria-label="Мова">UA</span>
               <LeadFormTrigger
                 intent="consultation"
                 className="ras-btn header-btn header-btn--signup header-btn--with-arrow"
                 onClick={closeMenu}
               >
-                <span className="header-btn-text">Записатися</span>
+                <span className="header-btn-text">{HEADER_CTA.program.label}</span>
                 <HeaderCtaArrow />
               </LeadFormTrigger>
             </div>
@@ -127,10 +116,10 @@ export function Header() {
           aria-label="Мобільна навігація"
           aria-hidden={!menuOpen}
         >
-          {NAV_LINKS.map((link) => (
-            <a key={`mobile-${link.href}-${link.label}`} href={link.href} onClick={closeMenu}>
+          {MAIN_NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} onClick={closeMenu}>
               {link.label}
-            </a>
+            </Link>
           ))}
           <div className="nav-mobile-actions">
             <LeadFormTrigger
@@ -138,7 +127,7 @@ export function Header() {
               className="ras-btn header-btn--signup header-btn--with-arrow"
               onClick={closeMenu}
             >
-              <span className="header-btn-text">Записатися</span>
+              <span className="header-btn-text">{HEADER_CTA.program.label}</span>
               <HeaderCtaArrow />
             </LeadFormTrigger>
           </div>

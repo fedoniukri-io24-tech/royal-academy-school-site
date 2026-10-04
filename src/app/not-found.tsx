@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
-import { Header } from '@/components/Header';
+import { SitePage } from '@/components/layout/PageShell';
 import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
-import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Сторінку не знайдено | Royal Academy School',
@@ -14,9 +13,8 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function NotFound() {
   return (
-    <>
-      <Header />
-      <main id="main-content" className="not-found-page">
+    <SitePage>
+      <div className="not-found-page">
         <div className="not-found-inner">
           <p className="not-found-code" aria-hidden="true">404</p>
           <h1 className="not-found-title">Сторінку не знайдено</h1>
@@ -33,8 +31,7 @@ export default function NotFound() {
             </LeadFormTrigger>
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </SitePage>
   );
 }

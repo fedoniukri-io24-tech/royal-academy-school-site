@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PROGRAM_DIRECTIONS } from '@/data/homeContent';
 
 const TONE: Record<string, string> = {
@@ -23,9 +24,8 @@ export function Programs() {
 
         <div className="directions-grid">
           {PROGRAM_DIRECTIONS.map((program) => (
-            <a
+            <Link
               key={program.id}
-              id={program.id}
               href={program.href}
               className={`direction-card direction-card--${TONE[program.id] ?? 'gold'}`}
             >
@@ -46,7 +46,7 @@ export function Programs() {
                   </svg>
                 </span>
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

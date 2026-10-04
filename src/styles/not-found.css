@@ -5,7 +5,7 @@
   z-index: 100;
   padding: 12px 18px;
   border-radius: var(--ras-radius-sm);
-  background: var(--navy-2);
+  background: var(--gradient-navy);
   color: #fff;
   font-family: var(--font-section-body);
   font-size: 14px;

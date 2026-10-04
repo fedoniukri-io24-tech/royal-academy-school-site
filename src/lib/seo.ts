@@ -6,6 +6,8 @@ type PageMetadataOptions = {
   description?: string;
   path?: string;
   noIndex?: boolean;
+  keywords?: string[];
+  ogImage?: string;
 };
 
 export function absoluteUrl(path = ''): string {
@@ -19,15 +21,18 @@ export function createPageMetadata({
   description = SITE.description,
   path = '/',
   noIndex = false,
+  keywords,
+  ogImage: ogImagePath,
 }: PageMetadataOptions = {}): Metadata {
   const pageTitle = title ?? `${SITE.name} | ${SITE.tagline}`;
   const canonical = absoluteUrl(path);
-  const ogImage = absoluteUrl(SITE.ogImage);
+  const ogImage = absoluteUrl(ogImagePath ?? SITE.ogImage);
+  const mergedKeywords = [...new Set([...(keywords ?? []), ...SITE.keywords])];
 
   return {
     title: pageTitle,
     description,
-    keywords: [...SITE.keywords],
+    keywords: mergedKeywords,
     authors: [{ name: SITE.name, url: SITE.url }],
     creator: SITE.name,
     publisher: SITE.name,
@@ -50,7 +55,7 @@ export function createPageMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${SITE.name} — ${SITE.tagline}`,
+          alt: pageTitle,
         },
       ],
     },

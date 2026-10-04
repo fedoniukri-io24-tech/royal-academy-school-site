@@ -1,3 +1,33 @@
+.lead-form-inline {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 32px);
+  border-radius: 22px;
+  border: 1px solid rgba(201, 169, 98, 0.35);
+  background: linear-gradient(180deg, #ffffff 0%, #fafaf9 100%);
+  box-shadow: 0 16px 44px rgba(16, 32, 64, 0.08);
+}
+
+.lead-form-inline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a962 0%, #e8d4a8 52%, rgba(201, 169, 98, 0.2) 100%);
+  pointer-events: none;
+}
+
+.lead-form-inline .lead-form-head {
+  margin-bottom: 20px;
+}
+
+.lead-form-inline--success {
+  text-align: center;
+  padding: 40px 24px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -157,7 +187,7 @@
   background: #fff;
   color: var(--navy-2);
   font-family: var(--font-section-body);
-  font-size: 16px;
+  font-size: 16px; /* iOS: без автозуму */
   font-weight: 600;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -184,7 +214,9 @@
   padding: 6px 6px 6px 22px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: var(--navy-2);
+  background:
+    linear-gradient(145deg, rgba(232, 212, 168, 0.14) 0%, transparent 42%),
+    var(--gradient-navy);
   color: #fff;
   font-family: var(--font-section-body);
   font-size: 12px;
@@ -192,14 +224,20 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(16, 32, 64, 0.28);
+  box-shadow:
+    0 12px 28px rgba(16, 32, 64, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .lead-form-submit:hover {
-  background: #1a3058;
+  background:
+    linear-gradient(145deg, rgba(232, 212, 168, 0.2) 0%, transparent 46%),
+    linear-gradient(165deg, #243a66 0%, #1a3058 45%, #102040 100%);
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(16, 32, 64, 0.32);
+  box-shadow:
+    0 14px 32px rgba(16, 32, 64, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .lead-form-submit-arrow {

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { FOOTER_COLUMNS, LEGAL_LINKS } from '@/config/navigation';
 import { SITE_CONTACTS } from '@/data/siteContacts';
 import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
 
@@ -25,6 +27,21 @@ export function Footer() {
             Записатися на консультацію →
           </LeadFormTrigger>
         </div>
+
+        <nav className="site-footer-links" aria-label="Навігація в підвалі">
+          {FOOTER_COLUMNS.map((column) => (
+            <div key={column.title}>
+              <p className="site-footer-links__title">{column.title}</p>
+              <ul>
+                {column.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
 
         <ul className="ras-footer-mock-contacts">
           <li>
@@ -56,6 +73,12 @@ export function Footer() {
             </a>
           </li>
         </ul>
+
+        <div className="site-footer-legal">
+          {LEGAL_LINKS.map((link) => (
+            <Link key={link.href} href={link.href}>{link.label}</Link>
+          ))}
+        </div>
 
         <p className="ras-footer-mock-copy">
           © {new Date().getFullYear()} Royal Academy School

@@ -17,6 +17,9 @@ export const SITE_CONTACTS = {
     full: 'вул. Маршала Тимошенка, 15Г, Київ, 04212',
     mapsUrl:
       'https://www.google.com/maps/search/?api=1&query=%D0%92%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%9C%D0%B0%D1%80%D1%88%D0%B0%D0%BB%D0%B0+%D0%A2%D0%B8%D0%BC%D0%BE%D1%88%D0%B5%D0%BD%D0%BA%D0%B0+15%D0%93+%D0%9A%D0%B8%D1%97%D0%B2',
+    /** Embed без API-ключа — основна філія на Оболоні */
+    mapsEmbedUrl:
+      'https://www.google.com/maps?q=%D0%B2%D1%83%D0%BB.%20%D0%9C%D0%B0%D1%80%D1%88%D0%B0%D0%BB%D0%B0%20%D0%A2%D0%B8%D0%BC%D0%BE%D1%88%D0%B5%D0%BD%D0%BA%D0%B0%2C%2015%D0%93%2C%20%D0%9A%D0%B8%D1%97%D0%B2&z=16&hl=uk&output=embed',
   },
   instagram: {
     url: 'https://www.instagram.com/royalacademyschool.ua/',

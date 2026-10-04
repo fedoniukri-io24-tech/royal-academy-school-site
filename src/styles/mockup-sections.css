@@ -228,16 +228,22 @@
 .site-header .header-btn--signup {
   min-height: 42px;
   padding: 0 18px 0 20px;
-  background: linear-gradient(180deg, #e8d4a8 0%, #c9a962 48%, #b8944f 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 42%),
+    linear-gradient(180deg, #f0dcb0 0%, #e8d4a8 28%, #c9a962 58%, #b8944f 100%);
   color: var(--navy-2);
   border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
   font-size: 11px;
   font-weight: 700;
 }
 
 .site-header .header-btn--signup:hover {
-  filter: brightness(1.04);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, transparent 46%),
+    linear-gradient(180deg, #f5e6c0 0%, #e8d4a8 30%, #d0b06a 62%, #c9a24d 100%);
   transform: translateY(-1px);
 }
 
@@ -774,7 +780,8 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--navy-2);
-  background: #fff;
+  background: linear-gradient(165deg, #ffffff 0%, #fffdf8 48%, #faf6ee 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .ras-format-mock-btn span {
@@ -852,9 +859,9 @@
   z-index: 0;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.82) 0%,
-    rgba(255, 255, 255, 0.58) 46%,
-    rgba(255, 255, 255, 0.22) 100%
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.78) 42%,
+    rgba(255, 255, 255, 0.88) 100%
   );
   pointer-events: none;
 }
@@ -892,17 +899,23 @@
 .ras-footer-mock-btn {
   min-height: 56px;
   padding: 0 32px;
-  background: var(--navy-2);
+  background:
+    linear-gradient(145deg, rgba(232, 212, 168, 0.14) 0%, transparent 42%),
+    var(--gradient-navy);
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   font-size: 13px;
   letter-spacing: 0.06em;
 }
 
 .ras-footer-mock-btn:hover {
-  background: var(--navy-mid);
+  background:
+    linear-gradient(145deg, rgba(232, 212, 168, 0.2) 0%, transparent 46%),
+    linear-gradient(165deg, #243a66 0%, #1a3058 45%, #102040 100%);
   color: #ffffff;
 }
 
@@ -1075,15 +1088,15 @@
   }
 
   .program-card--mock.kids .program-card-accent-bar {
-    background: var(--brand-gold);
+    background: var(--gradient-gold);
   }
 
   .program-card--mock.adults .program-card-accent-bar {
-    background: var(--burgundy-2);
+    background: var(--gradient-burgundy);
   }
 
   .program-card--mock.corporate .program-card-accent-bar {
-    background: var(--navy-mid);
+    background: var(--gradient-navy);
   }
 
   .program-card--mock .program-card-image--bg,
@@ -1219,18 +1232,23 @@
     gap: 16px;
   }
 
-  #ras-site:not(.landing-page) .ras-format-mock-card {
+  /* #ras-site більше не має .landing-page — клас на дочірньому .site-page */
+  #ras-site .site-page .ras-format-mock-card:not(.site-format-row) {
     grid-template-columns: 1fr;
     padding: 20px 20px 0;
   }
 
-  #ras-site:not(.landing-page) .ras-format-mock-visual {
+  #ras-site .site-page .ras-format-mock-card:not(.site-format-row) .ras-format-mock-visual {
+    position: relative;
     order: -1;
+    width: 100%;
     min-height: 160px;
+    height: auto;
     margin: 0 -20px;
+    border-radius: 0;
   }
 
-  #ras-site:not(.landing-page) .ras-format-mock-visual::before {
+  #ras-site .site-page .ras-format-mock-card:not(.site-format-row) .ras-format-mock-visual::before {
     background: linear-gradient(180deg, #fff 0%, transparent 35%);
   }
 

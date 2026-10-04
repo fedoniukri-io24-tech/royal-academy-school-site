@@ -88,7 +88,7 @@ export const PROGRAM_DIRECTIONS = [
     image: '/school-assets/programs/kids.png',
     width: 590,
     height: 805,
-    href: '#kids',
+    href: '/programs/kids',
   },
   {
     id: 'adults',
@@ -98,7 +98,7 @@ export const PROGRAM_DIRECTIONS = [
     image: '/school-assets/programs/adults.png',
     width: 577,
     height: 803,
-    href: '#adults',
+    href: '/programs/adults',
   },
   {
     id: 'corporate',
@@ -108,7 +108,7 @@ export const PROGRAM_DIRECTIONS = [
     image: '/school-assets/programs/corporate.png',
     width: 598,
     height: 804,
-    href: '#corporate',
+    href: '/programs/corporate',
   },
 ] as const;
 
@@ -117,21 +117,21 @@ export const FORMAT_SHOWCASE = [
     id: 'individual',
     title: 'Individual',
     text: 'Персональна програма під ваші цілі.',
-    href: '#contacts',
+    href: '/programs/individual',
     image: '/school-assets/format-individual.jpg',
   },
   {
     id: 'group',
     title: 'Group',
     text: 'Ефективне навчання в міні-групах.',
-    href: '#contacts',
+    href: '/programs/group',
     image: '/school-assets/format-group.jpg',
   },
   {
     id: 'corporate',
     title: 'Corporate',
     text: 'Рішення для вашої команди.',
-    href: '#contacts',
+    href: '/programs/corporate',
     image: '/school-assets/format-corporate.jpg',
   },
 ] as const;

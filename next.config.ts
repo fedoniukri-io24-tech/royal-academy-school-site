@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  async redirects() {
+    return [
+      { source: '/teachers', destination: '/about#team', permanent: true },
+      { source: '/results', destination: '/about#results', permanent: true },
+      { source: '/blog', destination: '/about#insights', permanent: true },
+      { source: '/level-test', destination: '/about#level-test', permanent: true },
+      { source: '/translation', destination: '/about#translation', permanent: true },
+    ];
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
   },
