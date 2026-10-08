@@ -11,13 +11,13 @@ export function Hero() {
         <div className="hero-content">
           <span className="ras-landing-rule ras-landing-rule--light" aria-hidden="true" />
           <h1 className="hero-title">
-            <span className="hero-title-line">Світ відкритий,</span>
-            <span className="hero-title-line hero-title-line--accent">коли ти знаєш мови.</span>
+            <span className="hero-title-line">Світ відкривається,</span>
+            <span className="hero-title-line hero-title-line--accent">коли ти знаєш мови</span>
           </h1>
 
           <div className="hero-actions">
             <LeadFormTrigger intent="consultation" className="hero-btn hero-btn--primary">
-              Розпочати шлях →
+              Записатися
             </LeadFormTrigger>
           </div>
         </div>

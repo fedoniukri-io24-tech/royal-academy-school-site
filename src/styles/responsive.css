@@ -403,7 +403,23 @@ main {
   }
 
   .logo-text {
-    display: none;
+    display: flex;
+  }
+
+  .logo-text-line--main {
+    font-size: 9px;
+  }
+
+  .logo-text-line--accent {
+    font-size: 14px;
+  }
+
+  .logo--brand-strong .logo-text-line--main {
+    font-size: 10px;
+  }
+
+  .logo--brand-strong .logo-text-line--accent {
+    font-size: 15px;
   }
 
   .burger {

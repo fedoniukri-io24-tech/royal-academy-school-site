@@ -238,6 +238,30 @@ button {
   color: var(--brand-gold);
 }
 
+/* Бренд у шапці — головний сигнал, без tagline */
+.logo--brand-strong .logo-text-line--main {
+  font-size: clamp(13px, 1.2vw, 16px);
+  letter-spacing: 0.06em;
+}
+
+.logo--brand-strong .logo-text-line--accent {
+  font-size: clamp(20px, 1.9vw, 26px);
+  font-weight: 700;
+}
+
+.site-header.header--scrolled .logo--brand-strong .logo-text-line--accent,
+.site-header.header--menu-open .logo--brand-strong .logo-text-line--accent {
+  color: var(--burgundy-2, #6b1f3a);
+}
+
+.nav-links--main {
+  gap: clamp(6px, 0.9vw, 14px);
+}
+
+.nav-links--main a {
+  font-size: clamp(12px, 0.95vw, 13.5px);
+}
+
 .site-header.header--scrolled .logo-text-line--main,
 .site-header.header--menu-open .logo-text-line--main {
   color: var(--navy-2);
@@ -649,6 +673,33 @@ button {
   border-color: rgba(255, 255, 255, 0.9);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%);
   transform: translateY(-1px);
+}
+
+.hero-btn--gold {
+  background: var(--gradient-gold-shine, linear-gradient(135deg, #fff8e8 0%, #f0dcb0 35%, #d0b06a 70%, #c9a24d 100%));
+  color: #1a1208;
+  padding: 16px 30px;
+  border: 1px solid rgba(168, 132, 46, 0.45);
+  box-shadow: 0 12px 32px rgba(168, 132, 46, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.hero-btn--gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(168, 132, 46, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* На світлому фоні ghost-кнопка */
+.home-teachers .hero-btn--ghost,
+.site-page .hero-btn--ghost {
+  color: var(--navy-2);
+  border-color: rgba(16, 32, 64, 0.2);
+  background: #fff;
+}
+
+.home-teachers .hero-btn--ghost:hover,
+.site-page .hero-btn--ghost:hover {
+  border-color: var(--burgundy-2, #6b1f3a);
+  color: var(--burgundy-2, #6b1f3a);
 }
 
 .hero-btn-play {

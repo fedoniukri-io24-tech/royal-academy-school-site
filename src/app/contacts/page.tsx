@@ -94,7 +94,7 @@ export default function ContactsPage() {
             lead="Зазвичай відповідаємо того ж дня в робочі години."
             steps={CONTACT_WORKFLOW}
             revealDelay={0.05}
-            ctaHref="/about#level-test"
+            ctaHref="/level-test"
             ctaLabel="Про тест рівня"
           />
 

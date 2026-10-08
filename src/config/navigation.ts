@@ -5,26 +5,43 @@ export type NavLink = {
 
 /** Головне меню в хедері — однакове на всіх сторінках */
 export const MAIN_NAV_LINKS: NavLink[] = [
+  { href: '/about', label: 'Про нас' },
   { href: '/programs', label: 'Програми' },
   { href: '/languages', label: 'Мови' },
-  { href: '/about', label: 'Про нас' },
   { href: '/pricing', label: 'Ціни' },
+  { href: '/summer-camp', label: 'Літній табір' },
+  { href: '/marathons', label: 'Марафони' },
+  { href: '/about#translation', label: 'Переклад' },
   { href: '/contacts', label: 'Контакти' },
 ];
 
 export const HEADER_CTA = {
   program: { label: 'Записатися' },
+  levelTest: { label: 'Пройти тестування', href: '/level-test' },
 } as const;
 
 export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
   {
+    title: 'Меню',
+    links: [
+      { href: '/programs', label: 'Програми' },
+      { href: '/languages', label: 'Мови' },
+      { href: '/about', label: 'Про нас' },
+      { href: '/pricing', label: 'Ціни' },
+      { href: '/summer-camp', label: 'Літній табір' },
+      { href: '/marathons', label: 'Марафони' },
+      { href: '/about#translation', label: 'Переклад' },
+      { href: '/contacts', label: 'Контакти' },
+    ],
+  },
+  {
     title: 'Навчання',
     links: [
+      { href: '/programs/kids', label: 'Дітям' },
       { href: '/programs/adults', label: 'Дорослим' },
-      { href: '/programs/kids', label: 'Дітям та підліткам' },
-      { href: '/programs/corporate', label: 'Corporate' },
-      { href: '/programs/speaking-clubs', label: 'Speaking clubs' },
-      { href: '/programs/individual', label: 'Індивідуально' },
+      { href: '/programs/corporate', label: 'Корпоративне' },
+      { href: '/programs/exams', label: 'Іспити' },
+      { href: '/level-test', label: 'Тест рівня' },
     ],
   },
   {
@@ -35,24 +52,6 @@ export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
       { href: '/languages/french', label: 'Французька' },
       { href: '/languages/spanish', label: 'Іспанська' },
       { href: '/languages/italian', label: 'Італійська' },
-    ],
-  },
-  {
-    title: 'Academy',
-    links: [
-      { href: '/about', label: 'Про нас' },
-      { href: '/about#team', label: 'Викладачі' },
-      { href: '/about#results', label: 'Результати' },
-      { href: '/about#level-test', label: 'Тест рівня' },
-      { href: '/pricing', label: 'Ціни' },
-      { href: '/contacts', label: 'Контакти' },
-    ],
-  },
-  {
-    title: 'Послуги',
-    links: [
-      { href: '/about#translation', label: 'Переклад' },
-      { href: '/about#insights', label: 'Корисне' },
     ],
   },
 ];
@@ -71,6 +70,9 @@ export const STATIC_SITE_PATHS = [
   '/contacts',
   '/programs',
   '/languages',
+  '/summer-camp',
+  '/marathons',
+  '/level-test',
   '/programs/kids',
   '/programs/adults',
   '/programs/corporate',

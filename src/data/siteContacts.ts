@@ -6,7 +6,7 @@ export const SITE_CONTACTS = {
   domain: 'royalacademyschool.ua',
   locations: 'Київ (Оболонь, Позняки) + Онлайн',
   languagesCount: 5,
-  experienceYears: '15+',
+  experienceYears: '20+',
   offer: 'Безкоштовний урок + тестування',
   monthlyReport: 'Щомісячний звіт для батьків і студентів',
   address: {

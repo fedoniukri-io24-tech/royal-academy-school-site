@@ -28,9 +28,9 @@ export function AboutLevelTestSection() {
         </div>
         <SectionReveal>
           <div className="inner-section-cta">
-            <LeadFormTrigger intent="level-test" className="ras-btn ras-btn-primary">
-              Записатися на діагностику
-            </LeadFormTrigger>
+            <Link href="/level-test" className="ras-btn ras-btn-primary">
+              Пройти онлайн-тест
+            </Link>
           </div>
         </SectionReveal>
       </div>

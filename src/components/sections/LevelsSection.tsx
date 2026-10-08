@@ -1,75 +1,42 @@
-import type { CSSProperties } from 'react';
-import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
+import Link from 'next/link';
 import { LEVELS } from '@/data/homeContent';
-import { SectionTitle } from '../ui/SectionTitle';
 import { SectionReveal } from '../ui/SectionReveal';
-
-const LEVEL_ACCENTS = [
-  'var(--burgundy)',
-  'var(--navy-2)',
-  'var(--burgundy-2)',
-  'var(--navy-mid)',
-  'var(--burgundy-deep)',
-];
 
 export function LevelsSection() {
   return (
-    <section className="ras-section ras-levels ras-bg-white" id="levels">
+    <section className="home-levels landing-section-accent landing-section-hairline" id="levels">
       <div className="ras-wrap">
         <SectionReveal>
-          <SectionTitle main="Рівні" accent="A1–C1" />
-          <p className="ras-lead">
-            Прозорий шлях від перших фраз до впевненого володіння мовою — оберіть свою точку старту.
-          </p>
+          <header className="ras-mock-head ras-mock-head--left">
+            <span className="ras-landing-rule" aria-hidden="true" />
+            <h2 className="ras-mock-head__title">
+              Від першого слова до професійного володіння мовою
+            </h2>
+          </header>
         </SectionReveal>
+      </div>
 
-        <div className="ras-levels-journey">
-          <div className="ras-levels-path" aria-hidden="true">
-            <span className="ras-levels-path-line" />
-            <span className="ras-levels-path-label ras-levels-path-label--start">Старт</span>
-            <span className="ras-levels-path-label ras-levels-path-label--end">Профі</span>
-          </div>
-
-          <div className="ras-levels-cards">
-            {LEVELS.map((level, i) => (
-              <SectionReveal key={level.code} delay={i * 0.07}>
-                <article
-                  className="ras-level-card ras-card-soft"
-                  style={
-                    {
-                      '--level-step': i + 1,
-                      '--level-accent': LEVEL_ACCENTS[i],
-                    } as CSSProperties
-                  }
-                >
-                  <div className="ras-level-card-top">
-                    <span className="ras-level-tier">{level.tier}</span>
-                    <span className="ras-level-step-num" aria-hidden="true">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                  <h3 className="ras-level-code">{level.code}</h3>
-                  <p className="ras-level-label">{level.label}</p>
-                  <span className="ras-level-emoji ras-emoji-deco" aria-hidden="true">{level.emoji}</span>
-                  {i < LEVELS.length - 1 && (
-                    <span className="ras-level-arrow" aria-hidden="true">→</span>
-                  )}
+      <SectionReveal delay={0.04}>
+        <div className="home-levels__track" tabIndex={0} aria-label="Рівні володіння мовою">
+          <ol className="home-levels__list">
+            {LEVELS.map((level) => (
+              <li key={level.code}>
+                <article className="home-level">
+                  <span className="home-level__code">{level.code}</span>
+                  <p className="home-level__label">{level.label}</p>
                 </article>
-              </SectionReveal>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
+      </SectionReveal>
 
-        <SectionReveal>
-          <div className="ras-levels-cta">
-            <div className="ras-levels-cta-box ras-card-surface">
-              <p className="ras-levels-cta-text">
-                Не знаєте, з чого почати? <strong>5-хвилинний тест</strong> допоможе визначити ваш рівень.
-              </p>
-              <LeadFormTrigger intent="level-test" className="ras-btn ras-btn-primary">
-                Дізнатися свій рівень
-              </LeadFormTrigger>
-            </div>
+      <div className="ras-wrap">
+        <SectionReveal delay={0.12}>
+          <div className="home-levels__cta">
+            <Link href="/level-test" className="hero-btn hero-btn--gold">
+              Дізнатися свій рівень
+            </Link>
           </div>
         </SectionReveal>
       </div>

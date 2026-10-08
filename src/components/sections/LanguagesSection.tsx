@@ -1,34 +1,35 @@
+import Link from 'next/link';
 import { LANGUAGES } from '@/data/homeContent';
-import { SectionTitle } from '../ui/SectionTitle';
 import { SectionReveal } from '../ui/SectionReveal';
 
 export function LanguagesSection() {
   return (
-    <section className="ras-section ras-languages ras-bg-white" id="languages">
+    <section className="home-langs landing-section-accent landing-section-hairline" id="languages">
       <div className="ras-wrap">
         <SectionReveal>
-          <SectionTitle main="Яку мову ви хочете" accent="вивчати?" />
+          <header className="ras-mock-head ras-mock-head--left">
+            <span className="ras-landing-rule" aria-hidden="true" />
+            <h2 className="ras-mock-head__title">Яку мову ви хочете вивчати?</h2>
+          </header>
         </SectionReveal>
 
-        <div className="ras-languages-grid">
+        <div className="home-langs__grid">
           {LANGUAGES.map((lang, i) => (
-            <SectionReveal key={lang.name} delay={i * 0.05}>
-              <a href={lang.href} className={`ras-lang-card ras-lang-card--${lang.color}`}>
-                <span className="ras-lang-emoji ras-emoji-deco" aria-hidden="true">{lang.emoji}</span>
-                <h3 className="ras-lang-name">{lang.name}</h3>
-                <p className="ras-lang-tagline">{lang.tagline}</p>
-                <p className="ras-lang-desc">{lang.description}</p>
-                <div className="ras-lang-meta">
-                  <span className="ras-lang-meta-label">Формати</span>
-                  <div className="ras-lang-tags">
-                    {lang.formats.map((format) => (
-                      <span key={format} className="ras-lang-tag">{format}</span>
-                    ))}
-                  </div>
-                </div>
-                <p className="ras-lang-levels">Рівні: {lang.levels}</p>
-                <span className="ras-pill-btn">Детальніше</span>
-              </a>
+            <SectionReveal key={lang.slug} delay={i * 0.04}>
+              <Link href={lang.href} className="home-lang-card">
+                <img
+                  src={lang.image}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  style={{ objectPosition: lang.objectPosition }}
+                />
+                <span className="home-lang-card__shade" aria-hidden="true" />
+                <span className="home-lang-card__emoji" aria-hidden="true">
+                  {lang.emoji}
+                </span>
+                <h3 className="home-lang-card__name">{lang.name}</h3>
+              </Link>
             </SectionReveal>
           ))}
         </div>

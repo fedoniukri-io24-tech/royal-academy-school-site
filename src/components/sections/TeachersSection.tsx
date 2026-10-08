@@ -1,30 +1,45 @@
+import Link from 'next/link';
 import { TEACHERS } from '@/data/homeContent';
-import { SectionTitle } from '../ui/SectionTitle';
 import { SectionReveal } from '../ui/SectionReveal';
 
 export function TeachersSection() {
   return (
-    <section className="ras-section ras-teachers ras-bg-white" id="teachers">
+    <section className="home-teachers landing-section-accent landing-section-hairline" id="teachers">
       <div className="ras-wrap">
         <SectionReveal>
-          <SectionTitle main="Наші" accent="викладачі" />
-          <p className="ras-lead">
-            Реальні фахівці з досвідом роботи з дітьми, дорослими та бізнес-клієнтами.
-          </p>
+          <header className="ras-mock-head ras-mock-head--left">
+            <span className="ras-landing-rule" aria-hidden="true" />
+            <h2 className="ras-mock-head__title">Викладачі Royal Academy School</h2>
+          </header>
         </SectionReveal>
 
-        <div className="ras-teachers-grid">
+        <div className="home-teachers__grid">
           {TEACHERS.map((teacher, i) => (
-            <SectionReveal key={teacher.name} delay={i * 0.05}>
-              <article className="ras-teacher-card ras-card-soft">
-                <div className="ras-teacher-photo" aria-hidden="true">{teacher.initials}</div>
-                <h3 className="ras-teacher-name">{teacher.name}</h3>
-                <p className="ras-teacher-lang">{teacher.language}</p>
-                <p className="ras-teacher-focus">{teacher.focus}</p>
+            <SectionReveal key={teacher.name + teacher.language} delay={i * 0.04}>
+              <article className="home-teacher">
+                <figure className="home-teacher__photo">
+                  <img
+                    src={teacher.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <h3 className="home-teacher__name">{teacher.name}</h3>
+                <p className="home-teacher__lang">{teacher.language}</p>
+                <p className="home-teacher__focus">{teacher.focus}</p>
               </article>
             </SectionReveal>
           ))}
         </div>
+
+        <SectionReveal delay={0.12}>
+          <p className="home-teachers__cta">
+            <Link href="/about#team" className="hero-btn hero-btn--ghost">
+              Познайомитися з командою →
+            </Link>
+          </p>
+        </SectionReveal>
       </div>
     </section>
   );

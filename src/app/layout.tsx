@@ -16,6 +16,7 @@ import '../styles/mockup-sections.css';
 import '../styles/landing-mobile.css';
 import '../styles/hero-landing.css';
 import '../styles/landing-match.css';
+import '../styles/home-landing.css';
 import '../styles/site-pages.css';
 import '../styles/site-pages-premium.css';
 

@@ -139,7 +139,15 @@
 
 @media (max-width: 640px) {
   #ras-site .landing-page .logo-text {
-    display: none;
+    display: flex;
+  }
+
+  #ras-site .landing-page .logo-text-line--main {
+    font-size: 10px;
+  }
+
+  #ras-site .landing-page .logo-text-line--accent {
+    font-size: 15px;
   }
 }
 

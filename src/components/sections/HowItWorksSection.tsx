@@ -1,35 +1,34 @@
 import { HOW_IT_WORKS } from '@/data/homeContent';
-import { SectionTitle } from '../ui/SectionTitle';
 import { SectionReveal } from '../ui/SectionReveal';
 
 export function HowItWorksSection() {
   return (
-    <section className="ras-section ras-steps ras-bg-burgundy" id="how-it-works">
+    <section className="home-how landing-section-accent landing-section-hairline" id="how-it-works">
       <div className="ras-wrap">
         <SectionReveal>
-          <SectionTitle main="як?" accent="проходить навчання" />
+          <header className="ras-mock-head ras-mock-head--left">
+            <span className="ras-landing-rule" aria-hidden="true" />
+            <h2 className="ras-mock-head__title">Як починається і проходить ваше навчання</h2>
+          </header>
         </SectionReveal>
 
-        <div className="ras-steps-grid">
+        <ol className="home-how__list">
           {HOW_IT_WORKS.map((step, i) => (
-            <SectionReveal key={step.step} delay={i * 0.05}>
-              <article className="ras-step-card ras-card-glass">
-                <div className="ras-step-card-top">
-                  <h3 className="ras-step-title">{step.title}</h3>
-                  <span className="ras-step-num" aria-hidden="true">{step.step}</span>
-                </div>
-                <p className="ras-step-text">{step.text}</p>
-                <span className="ras-step-emoji ras-emoji-deco" aria-hidden="true">{step.emoji}</span>
-              </article>
-            </SectionReveal>
+            <li key={step.step}>
+              <SectionReveal delay={i * 0.04}>
+                <article className="home-how__step">
+                  <span className="home-how__num" aria-hidden="true">
+                    {step.step}
+                  </span>
+                  <div className="home-how__body">
+                    <h3 className="home-how__title">{step.title}</h3>
+                    <p className="home-how__text">{step.text}</p>
+                  </div>
+                </article>
+              </SectionReveal>
+            </li>
           ))}
-        </div>
-
-        <SectionReveal>
-          <p className="ras-note">
-            Безкоштовне пробне заняття — ви бачите методику та свого викладача до старту програми.
-          </p>
-        </SectionReveal>
+        </ol>
       </div>
     </section>
   );

@@ -1,83 +1,291 @@
+/** Контент головної сторінки — бриф redesign */
+
+export const SCALE_FACTS = [
+  { value: '20+', label: 'років досвіду' },
+  { value: '2', label: 'офлайн-локації' },
+  { value: 'Онлайн', label: 'по всій Україні' },
+  { value: '2000+', label: 'студентів' },
+  { value: 'Corporate', label: 'навчання команд' },
+  { value: 'Іспити', label: 'IELTS, НМТ та інші' },
+  { value: 'Діти й дорослі', label: 'усі вікові формати' },
+  { value: 'Переклад', label: 'письмовий і усний' },
+] as const;
+
+export const FORMAT_FLIP_CARDS = [
+  {
+    id: 'kids',
+    style: 'individual',
+    title: 'Діти',
+    image: '/school-assets/hero-program-kids.jpg',
+    href: '/programs/kids',
+    links: [
+      { label: 'Групові', href: '/programs/group' },
+      { label: 'Індивідуальні', href: '/programs/individual' },
+      { label: 'Підготовка до іспитів', href: '/programs/exams' },
+    ],
+  },
+  {
+    id: 'adults',
+    style: 'group',
+    title: 'Дорослі',
+    image: '/school-assets/hero-program-adults.jpg',
+    href: '/programs/adults',
+    links: [
+      { label: 'Групові', href: '/programs/group' },
+      { label: 'Індивідуальні', href: '/programs/individual' },
+      { label: 'Бізнес-курс', href: '/programs/corporate' },
+      { label: 'Офлайн / онлайн', href: '/programs/adults' },
+    ],
+  },
+  {
+    id: 'corporate',
+    style: 'corporate',
+    title: 'Корпоративне навчання',
+    image: '/school-assets/format-corporate.jpg',
+    href: '/programs/corporate',
+    links: [
+      { label: 'Програми для команд', href: '/programs/corporate' },
+      { label: 'Business English', href: '/programs/corporate' },
+      { label: 'Індивідуальний розрахунок', href: '/contacts' },
+    ],
+  },
+] as const;
+
 export const LANGUAGES = [
   {
     name: 'Англійська',
-    tagline: 'Для подорожей, роботи та навчання за кордоном',
-    description:
-      'Найпоширеніша мова бізнесу, науки та міжнародного спілкування. Програми для дітей, дорослих і корпоративних клієнтів.',
-    formats: ['Дорослі', 'Діти', 'Бізнес', 'Група', 'Індивідуально'],
-    levels: 'A1 – C1',
-    href: '#languages',
     emoji: '🇬🇧',
-    color: 'burgundy',
+    slug: 'english',
+    href: '/languages/english',
+    image: '/school-assets/hero-lang-english.jpg',
+    objectPosition: 'center 38%',
   },
   {
     name: 'Німецька',
-    tagline: 'Для карʼєри, бізнесу та життя в Європі',
-    description:
-      'Мова інженерії, технологій і сильної європейської економіки. Підготовка до роботи, навчання та повсякденного спілкування.',
-    formats: ['Дорослі', 'Діти', 'Бізнес', 'Група'],
-    levels: 'A1 – B2',
-    href: '#languages',
     emoji: '🇩🇪',
-    color: 'navy',
+    slug: 'german',
+    href: '/languages/german',
+    image: '/school-assets/hero-lang-german.jpg',
+    objectPosition: 'center 34%',
   },
   {
     name: 'Французька',
-    tagline: 'Для культури, подорожей та міжнародної комунікації',
-    description:
-      'Мова дипломатії, моди та мистецтва. Ідеальна для подорожей, навчання в Європі та розвитку культурної компетенції.',
-    formats: ['Дорослі', 'Діти', 'Група', 'Індивідуально'],
-    levels: 'A1 – B2',
-    href: '#languages',
     emoji: '🇫🇷',
-    color: 'burgundy-light',
+    slug: 'french',
+    href: '/languages/french',
+    image: '/school-assets/hero-lang-french.jpg',
+    objectPosition: 'center 40%',
   },
   {
     name: 'Іспанська',
-    tagline: 'Для спілкування в більш ніж 20 країнах світу',
-    description:
-      'Друга за поширеністю мова рідної мови у світі. Жива комунікація, подорожі Латинською Америкою та Європою.',
-    formats: ['Дорослі', 'Діти', 'Speaking Club', 'Група'],
-    levels: 'A1 – B2',
-    href: '#languages',
     emoji: '🇪🇸',
-    color: 'navy-deep',
+    slug: 'spanish',
+    href: '/languages/spanish',
+    image: '/school-assets/hero-lang-spanish.jpg',
+    objectPosition: 'center 36%',
   },
   {
     name: 'Італійська',
-    tagline: 'Для подорожей, мистецтва та бізнесу',
-    description:
-      'Мова дизайну, культури та гастрономії. Для тих, хто хоче відчувати Італію не лише очима, а й голосом.',
-    formats: ['Дорослі', 'Група', 'Індивідуально'],
-    levels: 'A1 – B1',
-    href: '#languages',
     emoji: '🇮🇹',
-    color: 'burgundy-deep',
+    slug: 'italian',
+    href: '/languages/italian',
+    image: '/school-assets/hero-lang-italian.jpg',
+    objectPosition: 'center 34%',
   },
-];
+] as const;
+
+export const LEVELS = [
+  { code: 'A1', label: 'Я починаю говорити' },
+  { code: 'A2', label: 'Я справляюся у повсякденних ситуаціях' },
+  { code: 'B1', label: 'Я підтримую розмову' },
+  { code: 'B2', label: 'Я впевнено використовую мову' },
+  { code: 'C1', label: 'Я використовую мову професійно' },
+] as const;
+
+export const HOW_IT_WORKS = [
+  {
+    step: '01',
+    title: 'Знайомство',
+    text: 'Визначаємо вашу мету: робота, подорожі, навчання, бізнес, переїзд чи спілкування.',
+  },
+  {
+    step: '02',
+    title: 'Діагностика',
+    text: 'Дивимося не лише літеру рівня, а словник, граматику, speaking і конкретні прогалини.',
+  },
+  {
+    step: '03',
+    title: 'Безкоштовне повноцінне заняття',
+    text: 'Після аналізу тесту проводимо заняття під вашу мету: методика, формат і знайомство з викладачем.',
+  },
+  {
+    step: '04',
+    title: 'Персональна програма',
+    text: 'Підбираємо групу, викладача, формат і програму. Принципи: автоматизм, speaking, зрозуміла граматика, жива лексика.',
+  },
+  {
+    step: '05',
+    title: 'Контроль прогресу',
+    text: 'Відеозвітність: словник, граматика, speaking, прогрес і наступні цілі — не лише слова викладача.',
+  },
+] as const;
+
+export const WHY_US = [
+  {
+    title: 'Ми вчимо говорити',
+    text: 'Не будуємо навчання навколо нескінченних вправ «вставити слово». Головне — використовувати мову.',
+  },
+  {
+    title: 'Не привʼязуємося до одного підручника',
+    text: 'Авторські матеріали, відео, реальні ситуації, дискусії та практичні завдання.',
+  },
+  {
+    title: 'Програма під реальну мету',
+    text: 'Подорожі, робота, бізнес, навчання, переїзд чи комунікація — програма під ваш запит.',
+  },
+  {
+    title: 'Ми показуємо прогрес',
+    text: 'Рівень, результати, відео, що вже пройдено і над чим працювати далі.',
+  },
+  {
+    title: 'Мова для реального життя',
+    text: 'Speaking-класи, сучасні теми й ситуації поза заняттям.',
+  },
+  {
+    title: 'Усе під рукою',
+    text: 'Після уроків — матеріали з граматики, слів, домашніх завдань, щоб повернутися будь-коли.',
+  },
+] as const;
+
+export const SHORT_REVIEWS = [
+  {
+    name: 'Олена',
+    text: 'Нарешті говорю на зустрічах без страху. Відчуваю прогрес щомісяця.',
+    image: '/school-assets/reviews/olena.jpg',
+  },
+  {
+    name: 'Дмитро',
+    text: 'Діагностика була чесною: показали прогалини і зібрали план під роботу.',
+    image: '/school-assets/reviews/dmytro.jpg',
+  },
+  {
+    name: 'Марина',
+    text: 'Дитина пішла з охотою. Звіти для батьків — короткі й зрозумілі.',
+    image: '/school-assets/reviews/maryna.jpg',
+  },
+  {
+    name: 'Ігор',
+    text: 'Після кількох шкіл тут вперше дали живу практику, а не лише тести.',
+    image: '/school-assets/reviews/ihor.jpg',
+  },
+  {
+    name: 'Світлана',
+    text: 'Підібрали викладача після пробного. Формат і темп — під мій графік.',
+    image: '/school-assets/reviews/svitlana.jpg',
+  },
+  {
+    name: 'Андрій',
+    text: 'Чітко: мета → план → speaking. Без зайвого шуму.',
+    image: '/school-assets/reviews/andrii.jpg',
+  },
+] as const;
+
+export const RESULT_CASES = [
+  {
+    name: 'Віталій Розарьов',
+    request: 'Пройти внутрішнє тестування на знання англійської рівня B2 для роботи.',
+    result: 'Успішно пройдено тестування.',
+    mediaLabel: 'Скрін результату',
+    image: '/school-assets/reviews/vitalii.jpg',
+  },
+  {
+    name: 'Андрій Літвінчук',
+    request: 'Підготуватися до співбесіди в міжнародну компанію з початкового рівня.',
+    result: 'Успішно пройшов співбесіду і працює у бажаній компанії.',
+    mediaLabel: 'Відео-відгук',
+    image: '/school-assets/reviews/litvinchuk.jpg',
+  },
+  {
+    name: 'Андрій Дрок',
+    request: 'Скласти IELTS після кількох невдалих спроб з іншими школами та репетиторами.',
+    result: 'Бажаний результат після 2–3 місяців підготовки в Royal Academy School.',
+    mediaLabel: 'Відео + підтвердження',
+    image: '/school-assets/reviews/drok.jpg',
+  },
+] as const;
+
+export const CORPORATE_REVIEW = {
+  company: 'Корпоративний клієнт',
+  role: 'Business English для команди',
+  text: 'Команда почала впевненіше вести зустрічі англійською. Звіти по прогресу зрозумілі для HR і керівників.',
+  image: '/school-assets/hero-corporate.jpg',
+} as const;
+
+export const TEACHERS = [
+  {
+    name: 'Анна',
+    language: 'Англійська',
+    focus: 'Дорослі • Business English • Speaking',
+    initials: 'А',
+    image: '/school-assets/teachers/anna.jpg',
+  },
+  {
+    name: 'Олена',
+    language: 'Англійська',
+    focus: 'Діти • Підлітки • Іспити',
+    initials: 'О',
+    image: '/school-assets/teachers/olena.jpg',
+  },
+  {
+    name: 'Андрій',
+    language: 'Німецька',
+    focus: 'Дорослі • Corporate',
+    initials: 'А',
+    image: '/school-assets/teachers/andrii.jpg',
+  },
+  {
+    name: 'Софія',
+    language: 'Французька',
+    focus: 'Дорослі • Діти',
+    initials: 'С',
+    image: '/school-assets/teachers/sofia.jpg',
+  },
+] as const;
+
+export const PLATFORM_FEATURES = [
+  'Відеопояснення',
+  'Граматика',
+  'Вправи',
+  'Словникові матеріали',
+  'Повторення тем',
+  'Додаткові завдання',
+  'Навчальні відео',
+] as const;
+
+/* —— Legacy exports used on other pages —— */
 
 export const WHY_US_PILLARS = [
   {
-    id: 'global',
+    id: 'global' as const,
     label: 'Міжнародний підхід',
     description: 'Сучасна освіта та глобальні можливості для кожного.',
   },
   {
-    id: 'teachers',
+    id: 'teachers' as const,
     label: 'Досвідчені викладачі',
     description: 'Професіонали з міжнародною практикою.',
   },
   {
-    id: 'results',
+    id: 'results' as const,
     label: 'Реальні результати',
     description: 'Мова як інструмент для життя, навчання та карʼєри.',
   },
   {
-    id: 'community',
+    id: 'community' as const,
     label: 'Спільнота, що надихає',
     description: 'Підтримка, мотивація та нові можливості.',
   },
-] as const;
+];
 
 export const PROGRAM_DIRECTIONS = [
   {
@@ -136,237 +344,11 @@ export const FORMAT_SHOWCASE = [
   },
 ] as const;
 
-export const WHY_US = [
-  {
-    titleSans: 'комунікативна',
-    titleSerif: 'методика',
-    text: 'Ми вчимо говорити, а не просто ставити галочки в підручнику. Практична комунікація з першого заняття та реальні ситуації замість сухої теорії.',
-    emoji: '💬',
-  },
-  {
-    titleSans: 'без одного',
-    titleSerif: 'підручника',
-    text: 'Авторські матеріали, відео, дискусії та практичні завдання. Навчання не привʼязане до однієї книги — контент живий і сучасний.',
-    emoji: '✨',
-  },
-  {
-    titleSans: 'програма під',
-    titleSerif: 'вашу мету',
-    text: 'Подорожі, робота, бізнес, переїзд, навчання чи спілкування — програма будується навколо вашої реальної цілі, а не абстрактного курсу.',
-    emoji: '🎯',
-  },
-  {
-    titleSans: 'видимий',
-    titleSerif: 'прогрес',
-    text: 'Рівень, наступна ціль і результати на відео — ви бачите, як рухаєтесь вперед. Не лише слова, а чітка звітність по словам, граматиці та спілкуванню.',
-    emoji: '📈',
-  },
-  {
-    titleSans: 'мова в',
-    titleSerif: 'реальному житті',
-    text: 'Speaking clubs, сучасні теми та реальні комунікативні ситуації. Мова стає інструментом для життя, а не предметом у зошиті.',
-    emoji: '🌍',
-  },
-];
-
-export const HOW_IT_WORKS = [
-  {
-    step: '01',
-    title: 'Знайомство',
-    text: 'Визначаємо мету навчання — для чого вам саме ця мова та який результат ви хочете отримати.',
-    emoji: '🎯',
-  },
-  {
-    step: '02',
-    title: 'Діагностика',
-    text: 'Визначаємо поточний рівень і тематики, де є прогалини — не просто букви «А1», а конкретні навички.',
-    emoji: '🔍',
-  },
-  {
-    step: '03',
-    title: 'Пробне заняття',
-    text: 'Безкоштовне заняття: ви бачите реальну методику, формат і можете обрати викладача.',
-    emoji: '🎓',
-  },
-  {
-    step: '04',
-    title: 'Програма',
-    text: 'Підбираємо групу, викладача та формат під ваш графік і цілі навчання.',
-    emoji: '📋',
-  },
-  {
-    step: '05',
-    title: 'Навчання',
-    text: 'Практика спілкування, зрозуміла граматика та лексика, яка використовується в реальному житті.',
-    emoji: '💬',
-  },
-  {
-    step: '06',
-    title: 'Контроль прогресу',
-    text: 'Відеозвітність по словам, граматиці та спілкуванню — ви бачите свій прогрес, а не лише чуєте про нього.',
-    emoji: '📈',
-  },
-];
-
-export const FORMATS = [
-  {
-    titleSans: 'групове',
-    titleSerif: 'навчання',
-    text: 'Для тих, хто любить динаміку, командну енергію та регулярну практику спілкування.',
-    href: '#pricing',
-    emoji: '👥',
-  },
-  {
-    titleSans: 'індивідуальні',
-    titleSerif: 'заняття',
-    text: 'Максимальна персоналізація, гнучкий графік і фокус на ваших цілях.',
-    href: '#pricing',
-    emoji: '🎯',
-  },
-  {
-    titleSans: 'speaking',
-    titleSerif: 'clubs',
-    text: 'Жива розмовна практика на актуальні теми між основними заняттями.',
-    href: '#pricing',
-    emoji: '🎤',
-  },
-  {
-    titleSans: 'corporate',
-    titleSerif: 'learning',
-    text: 'Мовні програми для команд, які працюють на міжнародному ринку.',
-    href: '#corporate',
-    emoji: '💼',
-  },
-  {
-    titleSans: 'підготовка до',
-    titleSerif: 'іспитів',
-    text: 'НМТ, IELTS та інші міжнародні іспити — системна підготовка до результату.',
-    href: '#pricing',
-    emoji: '📝',
-  },
-];
-
-export const OUTCOMES = [
-  { text: 'Подорожувати без мовного барʼєра', emoji: '✈️' },
-  { text: 'Спілкуватися з людьми у різних країнах', emoji: '🌐' },
-  { text: 'Працювати з міжнародними компаніями', emoji: '🏢' },
-  { text: 'Навчатися за кордоном', emoji: '🎓' },
-  { text: 'Проводити переговори та робочі зустрічі', emoji: '🤝' },
-  { text: 'Говорити впевнено у повсякденних ситуаціях', emoji: '💬' },
-];
-
-export const LEVELS = [
-  { code: 'A1', label: 'Я починаю говорити', emoji: '🌱', tier: 'Старт' },
-  { code: 'A2', label: 'Я справляюся у повсякденних ситуаціях', emoji: '☕', tier: 'База' },
-  { code: 'B1', label: 'Я підтримую розмову', emoji: '💬', tier: 'Середній' },
-  { code: 'B2', label: 'Я впевнено використовую мову у роботі та подорожах', emoji: '✈️', tier: 'Вище' },
-  { code: 'C1', label: 'Я використовую мову професійно', emoji: '🎯', tier: 'Про' },
-];
-
-export const TEACHERS = [
-  { name: 'Олена Коваль', language: 'Англійська', focus: 'Kids · Adults · Speaking', initials: 'ОК' },
-  { name: 'Марія Шевченко', language: 'Англійська', focus: 'Business · Exams', initials: 'МШ' },
-  { name: 'Андрій Мельник', language: 'Німецька', focus: 'Adults · Corporate', initials: 'АМ' },
-  { name: 'Софія Бондар', language: 'Французька', focus: 'Kids · Adults', initials: 'СБ' },
-  { name: 'Ірина Лисенко', language: 'Іспанська', focus: 'Adults · Speaking', initials: 'ІЛ' },
-  { name: 'Катерина Руденко', language: 'Італійська', focus: 'Adults · Travel', initials: 'КР' },
-];
-
 export const STATS = [
-  { value: 15, suffix: 'років', label: 'роботи школи' },
-  { value: 1000, suffix: '+', label: 'студентів' },
-  { value: 10, suffix: '+', label: 'корпоративних клієнтів' },
-  { value: 90, suffix: '%', label: 'продовжують навчання' },
-];
-
-export const STORIES = [
-  {
-    name: 'Анна, 28',
-    from: 'A2',
-    to: 'B2',
-    goal: 'Робота в міжнародній компанії',
-    format: 'Група + Speaking Club',
-    duration: '10 місяців',
-    quote: 'За півроку почала впевнено говорити на зустрічах з колегами з Європи.',
-  },
-  {
-    name: 'Максим, 12',
-    from: 'Beginner',
-    to: 'B1',
-    goal: 'Подорожі та навчання за кордоном',
-    format: 'Kids · група',
-    duration: '14 місяців',
-    quote: 'Тепер сам спілкується під час подорожей і не боїться помилок.',
-  },
-  {
-    name: 'Команда FinTech',
-    from: 'B1',
-    to: 'B2+',
-    goal: 'Business English для переговорів',
-    format: 'Corporate Learning',
-    duration: '6 місяців',
-    quote: 'Команда почала проводити зустрічі з партнерами англійською.',
-  },
-];
-
-export const PRICING = [
-  {
-    id: 'group',
-    titleSans: 'групове',
-    titleSerif: 'навчання',
-    pricePrefix: 'від',
-    price: '4 500',
-    currency: 'грн',
-    period: '/ місяць · 8 занять',
-    note: 'Залежить від мови та рівня',
-    emoji: '👥',
-    accent: 'var(--burgundy)',
-    featured: true,
-    href: '#consultation',
-  },
-  {
-    id: 'individual',
-    titleSans: 'індивідуальне',
-    titleSerif: 'навчання',
-    pricePrefix: 'від',
-    price: '5 500',
-    currency: 'грн',
-    period: '/ місяць · 8 занять',
-    note: 'Гнучкий графік та персональна програма',
-    emoji: '🎯',
-    accent: 'var(--navy-2)',
-    featured: false,
-    href: '#consultation',
-  },
-  {
-    id: 'corporate',
-    titleSans: 'corporate',
-    titleSerif: 'learning',
-    pricePrefix: '',
-    price: 'індивідуальний',
-    priceSuffix: 'розрахунок',
-    currency: '',
-    period: 'програма під ваш бізнес',
-    note: 'Програма під цілі вашої компанії',
-    emoji: '💼',
-    accent: 'var(--burgundy-2)',
-    featured: false,
-    href: '#corporate',
-  },
-  {
-    id: 'platform',
-    titleSans: 'навчальна',
-    titleSerif: 'платформа',
-    pricePrefix: '',
-    price: '1 500',
-    currency: 'грн',
-    period: '/ пів року',
-    note: 'Окрема доплата, не входить у базовий курс',
-    emoji: '💻',
-    accent: 'var(--navy-mid)',
-    featured: false,
-    href: '#platform',
-  },
+  { value: 20, suffix: '+', label: 'років досвіду' },
+  { value: 2000, suffix: '+', label: 'студентів' },
+  { value: 2, suffix: '', label: 'офлайн-локації' },
+  { value: 5, suffix: '', label: 'мов у школі' },
 ];
 
 export const FAQ = [
@@ -376,33 +358,48 @@ export const FAQ = [
     emoji: '📊',
   },
   {
-    q: 'Скільки людей у групі?',
-    a: 'Розмір групи залежить від формату. Ми дотримуємось балансу між живою практикою та увагою до кожного студента.',
-    emoji: '👥',
-  },
-  {
     q: 'Чи можна навчатися онлайн?',
     a: 'Так. Доступні онлайн та офлайн формати, а також комбінований варіант.',
     emoji: '💻',
   },
   {
-    q: 'Що відбувається, якщо студент пропускає заняття?',
-    a: 'Умови відпрацювання залежать від формату. Менеджер підкаже оптимальне рішення для вашої програми.',
-    emoji: '📅',
-  },
-  {
-    q: 'Скільки триває один рівень?',
-    a: 'У середньому від 6 до 12 місяців — залежить від інтенсивності, формату та ваших цілей.',
-    emoji: '⏱️',
-  },
-  {
-    q: 'Чи є програми для початківців?',
-    a: 'Так. Є програми з рівня A1 для дітей, дорослих і корпоративних клієнтів.',
-    emoji: '🌱',
-  },
-  {
     q: 'Які мови доступні?',
-    a: 'Англійська, німецька, французька, іспанська та італійська. Актуальний перелік — у блоці «Мови».',
+    a: 'Англійська, німецька, французька, іспанська та італійська.',
     emoji: '🌍',
   },
 ];
+
+/** Legacy — секції ще в репо, але не на головній */
+export const OUTCOMES = [
+  { text: 'Подорожувати без мовного барʼєра', emoji: '✈️' },
+  { text: 'Працювати з міжнародними компаніями', emoji: '🏢' },
+  { text: 'Говорити впевнено у повсякденних ситуаціях', emoji: '💬' },
+];
+
+export const PRICING = [
+  {
+    id: 'group',
+    titleSans: 'групове',
+    titleSerif: 'навчання',
+    pricePrefix: 'від',
+    price: '4 500',
+    priceSuffix: '',
+    currency: 'грн',
+    period: '/ місяць · 8 занять',
+    note: 'Залежить від мови та рівня',
+    emoji: '👥',
+    accent: 'var(--burgundy)',
+    featured: true,
+    href: '#consultation',
+  },
+];
+
+export const STORIES = RESULT_CASES.map((c) => ({
+  name: c.name,
+  from: '—',
+  to: '—',
+  goal: c.request,
+  format: 'Royal Academy School',
+  duration: '—',
+  quote: c.result,
+}));

@@ -120,7 +120,7 @@ export function LanguagePageTemplate({ data }: LanguagePageTemplateProps) {
           <PageLevelsPanel levels={data.levels} />
           <p className="site-note">
             Безкоштовна діагностика —{' '}
-            <Link href="/about#level-test" className="site-inline-link">як визначити рівень</Link>.
+            <Link href="/level-test" className="site-inline-link">як визначити рівень</Link>.
           </p>
         </PageSection>
 

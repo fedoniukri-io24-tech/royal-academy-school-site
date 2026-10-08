@@ -100,7 +100,7 @@ export default function PricingPage() {
             <PageTariffGrid items={TIERS} />
             <p className="site-note" style={{ marginTop: 24 }}>
               Speaking clubs та підготовка до іспитів — індивідуальний розрахунок після{' '}
-              <Link href="/about#level-test" className="site-inline-link">діагностики рівня</Link>.
+              <Link href="/level-test" className="site-inline-link">діагностики рівня</Link>.
             </p>
           </PageSection>
 

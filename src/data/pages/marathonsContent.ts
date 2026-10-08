@@ -1,0 +1,26 @@
+export const MARATHONS = [
+  {
+    id: 'beginner-a1',
+    level: 'Beginner · A1',
+    title: 'Марафон англійської для початківців',
+    lead: 'Почни говорити англійською вже за 10 занять. Базові теми, практика і 70 днів підтримки.',
+    meta: ['10 занять', '10 тижнів', '70 днів підтримки'],
+    priceFrom: 'від 399 грн',
+    href: 'https://www.royalacademyschool.in.ua/',
+    image: '/school-assets/hero-lang-english.jpg',
+    objectPosition: 'center 38%',
+    featured: false,
+  },
+  {
+    id: 'elementary-a2',
+    level: 'Elementary · A2',
+    title: 'Марафон англійської Elementary A2',
+    lead: 'Закріпи базові теми рівня A2: speaking, практика після кожного уроку та перевірка куратора.',
+    meta: ['10 занять', '10 тижнів', '70 днів підтримки'],
+    priceFrom: 'від 399 грн',
+    href: 'https://www.royalacademyschool.in.ua/elementary-a2',
+    image: '/school-assets/hero-programs.jpg',
+    objectPosition: 'center 32%',
+    featured: true,
+  },
+] as const;

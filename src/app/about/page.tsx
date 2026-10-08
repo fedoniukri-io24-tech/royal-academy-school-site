@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { SitePage } from '@/components/layout/PageShell';
 import { PageHero } from '@/components/layout/PageHero';
 import { PageSection } from '@/components/layout/PageSection';
@@ -178,6 +179,9 @@ export default function AboutPage() {
                 revealDelay={0.04}
               />
               <p className="site-guide-cta-row">
+                <Link href="/level-test" className="hero-btn hero-btn--gold">
+                  Пройти онлайн-тест
+                </Link>
                 <LeadFormTrigger intent="level-test" className="hero-btn hero-btn--primary">
                   Записатися на діагностику →
                 </LeadFormTrigger>

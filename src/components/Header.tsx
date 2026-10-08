@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
 import { HEADER_CTA, MAIN_NAV_LINKS } from '@/config/navigation';
 import { lockScroll, unlockScroll } from '@/lib/scrollLock';
 
@@ -55,14 +54,11 @@ export function Header() {
 
       <header className={headerClass}>
         <div className="nav-row">
-          <Link href="/" className="logo" aria-label="На головну — Royal Academy School" onClick={closeMenu}>
+          <Link href="/" className="logo logo--brand-strong" aria-label="На головну — Royal Academy School" onClick={closeMenu}>
             <img src="/school-assets/logo.png" alt="" />
             <span className="logo-text">
               <span className="logo-text-line logo-text-line--main">Royal Academy</span>
               <span className="logo-text-line logo-text-line--accent">School</span>
-              <span className="logo-text-tagline logo-text-tagline--header">
-                Світ відкритий, коли ти знаєш мови
-              </span>
             </span>
           </Link>
 
@@ -77,24 +73,24 @@ export function Header() {
           </div>
 
           <div className="nav-right">
-            <LeadFormTrigger
-              intent="consultation"
+            <Link
+              href={HEADER_CTA.levelTest.href}
               className="ras-btn header-btn header-btn--signup header-btn--with-arrow header-btn--mobile nav-mobile-only"
               onClick={closeMenu}
             >
-              <span className="header-btn-text">{HEADER_CTA.program.label}</span>
+              <span className="header-btn-text">{HEADER_CTA.levelTest.label}</span>
               <HeaderCtaArrow size={16} />
-            </LeadFormTrigger>
+            </Link>
 
             <div className="nav-cta-group nav-desktop-only">
-              <LeadFormTrigger
-                intent="consultation"
+              <Link
+                href={HEADER_CTA.levelTest.href}
                 className="ras-btn header-btn header-btn--signup header-btn--with-arrow"
                 onClick={closeMenu}
               >
-                <span className="header-btn-text">{HEADER_CTA.program.label}</span>
+                <span className="header-btn-text">{HEADER_CTA.levelTest.label}</span>
                 <HeaderCtaArrow />
-              </LeadFormTrigger>
+              </Link>
             </div>
 
             <button
@@ -122,14 +118,14 @@ export function Header() {
             </Link>
           ))}
           <div className="nav-mobile-actions">
-            <LeadFormTrigger
-              intent="consultation"
+            <Link
+              href={HEADER_CTA.levelTest.href}
               className="ras-btn header-btn--signup header-btn--with-arrow"
               onClick={closeMenu}
             >
-              <span className="header-btn-text">{HEADER_CTA.program.label}</span>
+              <span className="header-btn-text">{HEADER_CTA.levelTest.label}</span>
               <HeaderCtaArrow />
-            </LeadFormTrigger>
+            </Link>
           </div>
         </nav>
       </header>
