@@ -17,7 +17,7 @@ export const MAIN_NAV_LINKS: NavLink[] = [
 
 export const HEADER_CTA = {
   program: { label: 'Записатися' },
-  levelTest: { label: 'Пройти тестування', href: '/level-test' },
+  levelTest: { label: 'Пройти тест', href: '/level-test' },
 } as const;
 
 export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [

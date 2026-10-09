@@ -73,15 +73,6 @@ export function Header() {
           </div>
 
           <div className="nav-right">
-            <Link
-              href={HEADER_CTA.levelTest.href}
-              className="ras-btn header-btn header-btn--signup header-btn--with-arrow header-btn--mobile nav-mobile-only"
-              onClick={closeMenu}
-            >
-              <span className="header-btn-text">{HEADER_CTA.levelTest.label}</span>
-              <HeaderCtaArrow size={16} />
-            </Link>
-
             <div className="nav-cta-group nav-desktop-only">
               <Link
                 href={HEADER_CTA.levelTest.href}

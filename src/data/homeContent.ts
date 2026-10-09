@@ -1,14 +1,30 @@
 /** Контент головної сторінки — бриф redesign */
 
 export const SCALE_FACTS = [
-  { value: '20+', label: 'років досвіду' },
-  { value: '2', label: 'офлайн-локації' },
-  { value: 'Онлайн', label: 'по всій Україні' },
-  { value: '2000+', label: 'студентів' },
-  { value: 'Corporate', label: 'навчання команд' },
-  { value: 'Іспити', label: 'IELTS, НМТ та інші' },
-  { value: 'Діти й дорослі', label: 'усі вікові формати' },
-  { value: 'Переклад', label: 'письмовий і усний' },
+  {
+    id: 'experience',
+    value: '20+',
+    label: 'років досвіду',
+    description: 'Стабільна школа з перевіреною методикою та результатами.',
+  },
+  {
+    id: 'students',
+    value: '2000+',
+    label: 'студентів',
+    description: 'Діти, дорослі та команди, які вже говорять мовами.',
+  },
+  {
+    id: 'locations',
+    value: '2',
+    label: 'офлайн-локації',
+    description: 'Оболонь і Позняки — зручно дістатися в Києві.',
+  },
+  {
+    id: 'online',
+    value: 'Онлайн',
+    label: 'по всій Україні',
+    description: 'Той самий рівень якості — з будь-якого міста.',
+  },
 ] as const;
 
 export const FORMAT_FLIP_CARDS = [
