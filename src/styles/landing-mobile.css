@@ -142,12 +142,9 @@
     display: flex;
   }
 
-  #ras-site .landing-page .logo-text-line--main {
-    font-size: 10px;
-  }
-
-  #ras-site .landing-page .logo-text-line--accent {
-    font-size: 15px;
+  #ras-site .landing-page .logo-text-line {
+    font-size: 12px;
+    letter-spacing: 0.09em;
   }
 }
 

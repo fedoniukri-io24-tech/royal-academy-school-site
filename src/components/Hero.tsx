@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
 
 export function Hero() {
@@ -12,24 +13,32 @@ export function Hero() {
           <span className="ras-landing-rule ras-landing-rule--light" aria-hidden="true" />
           <h1 className="hero-title">
             <span className="hero-title-line">Світ відкривається,</span>
-            <span className="hero-title-line hero-title-line--accent">коли ти знаєш мови</span>
+            <span className="hero-title-line">
+              <span className="hero-title-line--accent">коли ти</span> знаєш мови.
+            </span>
           </h1>
 
           <div className="hero-actions">
             <LeadFormTrigger intent="consultation" className="hero-btn hero-btn--primary">
               Записатися
+              <span aria-hidden="true">→</span>
             </LeadFormTrigger>
+
+            <Link href="/level-test" className="hero-btn hero-btn--gold">
+              Пройти тестування
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="hero-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0,44 C320,62 640,30 960,48 C1200,60 1360,38 1440,46 L1440,72 L0,72 Z"
-            fill="#fafaf9"
-          />
-        </svg>
+      <div className="hero-scroll" aria-hidden="true">
+        <span className="hero-scroll__mouse">
+          <span className="hero-scroll__wheel" />
+        </span>
+      </div>
+
+      <div className="hero-transition" aria-hidden="true">
+        <div className="hero-transition-fade" />
       </div>
     </section>
   );

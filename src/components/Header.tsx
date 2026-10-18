@@ -57,8 +57,8 @@ export function Header() {
           <Link href="/" className="logo logo--brand-strong" aria-label="На головну — Royal Academy School" onClick={closeMenu}>
             <img src="/school-assets/logo.png" alt="" />
             <span className="logo-text">
-              <span className="logo-text-line logo-text-line--main">Royal Academy</span>
-              <span className="logo-text-line logo-text-line--accent">School</span>
+              <span className="logo-text-line">Royal Academy</span>
+              <span className="logo-text-line">School</span>
             </span>
           </Link>
 

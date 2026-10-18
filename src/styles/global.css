@@ -208,50 +208,57 @@ button {
 .logo-text {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  line-height: 1.05;
+  gap: 2px;
+  line-height: 1.02;
   min-width: 0;
 }
 
 .logo-text-line {
   display: block;
   white-space: nowrap;
-  transition: color 0.3s ease;
-}
-
-.logo-text-line--main {
   font-family: var(--font-section-display);
-  font-size: clamp(11px, 1.05vw, 14px);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.logo-text-line--accent {
-  font-family: var(--font-section-display);
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 800;
   font-style: normal;
-  font-weight: 600;
-  font-size: clamp(16px, 1.55vw, 21px);
-  letter-spacing: -0.02em;
-  text-transform: none;
-  color: var(--brand-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    115deg,
+    #fff4d6 0%,
+    #f0dcb0 18%,
+    #e8d4a8 36%,
+    #d0b06a 58%,
+    #c9a24d 78%,
+    #e8d4a8 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.28));
 }
 
-/* Бренд у шапці — головний сигнал, без tagline */
-.logo--brand-strong .logo-text-line--main {
-  font-size: clamp(13px, 1.2vw, 16px);
-  letter-spacing: 0.06em;
+.logo--brand-strong .logo-text-line {
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
 }
 
-.logo--brand-strong .logo-text-line--accent {
-  font-size: clamp(20px, 1.9vw, 26px);
-  font-weight: 700;
-}
-
-.site-header.header--scrolled .logo--brand-strong .logo-text-line--accent,
-.site-header.header--menu-open .logo--brand-strong .logo-text-line--accent {
-  color: var(--burgundy-2, #6b1f3a);
+.site-header.header--scrolled .logo-text-line,
+.site-header.header--menu-open .logo-text-line {
+  background: linear-gradient(
+    115deg,
+    #c9a24d 0%,
+    #a8842e 28%,
+    #8e6f24 52%,
+    #c9a24d 78%,
+    #d0b06a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(168, 132, 46, 0.2));
 }
 
 .nav-links--main {
@@ -262,10 +269,6 @@ button {
   font-size: clamp(12px, 0.95vw, 13.5px);
 }
 
-.site-header.header--scrolled .logo-text-line--main,
-.site-header.header--menu-open .logo-text-line--main {
-  color: var(--navy-2);
-}
 
 .nav-center {
   display: flex;

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { SCALE_FACTS } from '@/data/homeContent';
-import { ScaleIcon, type ScaleIconId } from './ScaleIcons';
+import { SCHOOL_INTRO_PILLARS } from '@/data/homeContent';
+import { WhyUsIcon } from './WhyUsIcons';
 import { SectionReveal } from '../ui/SectionReveal';
 
 export function ScaleSection() {
@@ -12,10 +12,11 @@ export function ScaleSection() {
       <div className="ras-why-mock-bg" aria-hidden="true" />
       <div className="ras-wrap ras-why-mock-wrap">
         <div className="ras-why-mock-head">
-          <header className="ras-mock-head ras-mock-head--left">
+          <header className="ras-mock-head ras-mock-head--center">
             <span className="ras-landing-rule" aria-hidden="true" />
-            <h2 className="ras-mock-head__title">
-              Royal Academy School — більше, ніж мовна школа
+            <h2 className="ras-mock-head__title home-scale__title">
+              <span className="home-scale__title-main">Знайомтесь —</span>{' '}
+              <span className="home-scale__title-accent">Royal Academy School</span>
             </h2>
           </header>
           <Link href="/about" className="ras-why-mock-more">
@@ -24,16 +25,15 @@ export function ScaleSection() {
           </Link>
         </div>
 
-        <ul className="ras-why-pillars">
-          {SCALE_FACTS.map((fact, i) => (
-            <li key={fact.id} className="ras-why-pillar">
-              <SectionReveal delay={i * 0.04}>
+        <ul className="ras-why-pillars ras-why-pillars--intro">
+          {SCHOOL_INTRO_PILLARS.map((item, i) => (
+            <li key={item.id} className="ras-why-pillar">
+              <SectionReveal delay={i * 0.03}>
                 <span className="ras-why-pillar-icon">
-                  <ScaleIcon id={fact.id as ScaleIconId} />
+                  <WhyUsIcon id={item.id} />
                 </span>
-                <h3 className="ras-why-pillar-title home-scale__value">{fact.value}</h3>
-                <p className="ras-why-pillar-title home-scale__label">{fact.label}</p>
-                <p className="ras-why-pillar-desc">{fact.description}</p>
+                <h3 className="ras-why-pillar-title">{item.label}</h3>
+                <p className="ras-why-pillar-desc">{item.description}</p>
               </SectionReveal>
             </li>
           ))}

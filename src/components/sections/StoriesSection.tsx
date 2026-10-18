@@ -1,91 +1,98 @@
-import { CORPORATE_REVIEW, RESULT_CASES, SHORT_REVIEWS } from '@/data/homeContent';
+'use client';
+
+import { useMemo, useState } from 'react';
+import {
+  REVIEW_AUDIENCES,
+  STUDENT_STORIES,
+  type ReviewAudienceId,
+} from '@/data/homeContent';
 import { SectionReveal } from '../ui/SectionReveal';
 
 export function StoriesSection() {
+  const [audience, setAudience] = useState<ReviewAudienceId>('adults');
+
+  const stories = useMemo(
+    () => STUDENT_STORIES.filter((item) => item.audience === audience),
+    [audience],
+  );
+
   return (
     <section className="home-results landing-section-accent landing-section-hairline" id="results">
       <div className="ras-wrap">
         <SectionReveal>
-          <header className="ras-mock-head ras-mock-head--left">
+          <header className="ras-mock-head ras-mock-head--center">
             <span className="ras-landing-rule" aria-hidden="true" />
             <h2 className="ras-mock-head__title">Результати та відгуки студентів</h2>
             <p className="site-block__lead home-results__lead">
-              Запит → робота з нами → результат. Не лише зірки, а конкретні історії.
+              Запит → робота з нами → результат. Не лише зірки — конкретні історії.
             </p>
           </header>
         </SectionReveal>
+
+        <SectionReveal delay={0.04}>
+          <div className="home-results__tabs" role="tablist" aria-label="Категорії відгуків">
+            {REVIEW_AUDIENCES.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                role="tab"
+                aria-selected={audience === item.id}
+                className={`home-results__tab${audience === item.id ? ' is-active' : ''}`}
+                onClick={() => setAudience(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </SectionReveal>
       </div>
 
-      <SectionReveal delay={0.04}>
-        <div className="home-results__track" tabIndex={0} aria-label="Відгуки та результати студентів">
+      <SectionReveal delay={0.06}>
+        <div
+          className="home-results__track"
+          tabIndex={0}
+          aria-label={`Історії — ${REVIEW_AUDIENCES.find((item) => item.id === audience)?.label}`}
+        >
           <ul className="home-results__row">
-            {SHORT_REVIEWS.map((review) => (
-              <li key={`review-${review.name}`}>
-                <article className="home-review">
-                  <figure className="home-review__shot">
-                    <img src={review.image} alt="" loading="lazy" decoding="async" />
+            {stories.map((story) => (
+              <li key={`${story.audience}-${story.name}`}>
+                <article className="home-story">
+                  <figure className="home-story__media">
+                    <img src={story.image} alt="" loading="lazy" decoding="async" />
+                    <span className="home-story__media-label">{story.mediaLabel}</span>
                   </figure>
-                  <p className="home-review__text">«{review.text}»</p>
-                  <p className="home-review__name">{review.name}</p>
-                </article>
-              </li>
-            ))}
 
-            {RESULT_CASES.map((item) => (
-              <li key={`case-${item.name}`}>
-                <article className="home-case">
-                  <figure className="home-case__media">
-                    <img src={item.image} alt="" loading="lazy" decoding="async" />
-                    <span className="home-case__media-label">{item.mediaLabel}</span>
-                  </figure>
-                  <h4 className="home-case__name">{item.name}</h4>
-                  <p className="home-case__row">
-                    <span>Запит</span>
-                    {item.request}
-                  </p>
-                  <p className="home-case__row home-case__row--result">
-                    <span>Результат</span>
-                    {item.result}
-                  </p>
+                  <h3 className="home-story__name">{story.name}</h3>
+
+                  <div className="home-story__journey">
+                    <div className="home-story__point home-story__point--a">
+                      <span className="home-story__badge">
+                        <span className="home-story__badge-dot">A</span>
+                        Запит
+                      </span>
+                      <p>{story.request}</p>
+                    </div>
+
+                    <div className="home-story__bridge" aria-hidden="true">
+                      <span className="home-story__bridge-line" />
+                      <span className="home-story__bridge-mid">→</span>
+                      <span className="home-story__bridge-line" />
+                    </div>
+
+                    <div className="home-story__point home-story__point--b">
+                      <span className="home-story__badge home-story__badge--result">
+                        <span className="home-story__badge-dot home-story__badge-dot--b">B</span>
+                        Результат
+                      </span>
+                      <p>{story.result}</p>
+                    </div>
+                  </div>
                 </article>
               </li>
             ))}
           </ul>
         </div>
       </SectionReveal>
-
-      <div className="ras-wrap">
-        <SectionReveal delay={0.1}>
-          <article className="home-corporate-review">
-            <div className="home-corporate-review__content">
-              <p className="home-corporate-review__label">Корпоративний відгук</p>
-              <blockquote className="home-corporate-review__text">
-                <span className="home-corporate-review__quote" aria-hidden="true">
-                  “
-                </span>
-                {CORPORATE_REVIEW.text}
-              </blockquote>
-              <footer className="home-corporate-review__meta">
-                <span className="home-corporate-review__avatar" aria-hidden="true">
-                  К
-                </span>
-                <div>
-                  <p className="home-corporate-review__company">{CORPORATE_REVIEW.company}</p>
-                  <p className="home-corporate-review__role">{CORPORATE_REVIEW.role}</p>
-                </div>
-              </footer>
-            </div>
-            <figure className="home-corporate-review__visual">
-              <img
-                src={CORPORATE_REVIEW.image}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          </article>
-        </SectionReveal>
-      </div>
     </section>
   );
 }

@@ -1714,13 +1714,16 @@
 }
 
 #ras-site .site-page .site-why-mock .ras-why-pillar-icon {
-  width: clamp(84px, 10vw, 100px);
-  height: clamp(84px, 10vw, 100px);
+  width: clamp(64px, 8vw, 72px);
+  height: clamp(64px, 8vw, 72px);
+  background: none;
+  border: 0;
+  box-shadow: none;
 }
 
 #ras-site .site-page .site-why-mock .ras-why-pillar-icon svg {
-  width: clamp(58px, 7vw, 72px);
-  height: clamp(58px, 7vw, 72px);
+  width: clamp(48px, 6vw, 56px);
+  height: clamp(48px, 6vw, 56px);
 }
 
 #ras-site .site-page .site-why-mock .ras-why-pillar-title {

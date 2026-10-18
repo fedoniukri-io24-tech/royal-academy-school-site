@@ -66,25 +66,10 @@
   display: none;
 }
 
-/* Повноекранні секції (directions тощо) — смуга зліва від контенту, не поверх нього */
-#ras-site .site-page .site-directions.landing-section-accent::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 18px;
-  bottom: 18px;
-  left: 0;
-  width: 2px;
-  border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(201, 169, 98, 0.55) 25%,
-    rgba(142, 26, 40, 0.35) 55%,
-    transparent 100%
-  );
-  opacity: 0.55;
-  pointer-events: none;
+#ras-site .site-page .site-directions.landing-section-accent::before,
+#ras-site .site-page .landing-section-accent::before {
+  content: none;
+  display: none;
 }
 
 /* Розділювачі секцій — лише gap стеку, без додаткових ліній під контентом */

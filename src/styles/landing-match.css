@@ -2,41 +2,19 @@
 
 .directions {
   background: #fafaf9;
-  padding: 12px 0 88px;
 }
 
 #ras-site .landing-page .directions {
   position: relative;
   z-index: 1;
   margin-top: 0;
-  padding-top: 20px;
   overflow: hidden;
   background-color: #fafaf9;
 }
 
-#ras-site .landing-page .directions::before {
-  content: '';
-  position: absolute;
-  top: -28px;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: url('/school-assets/hero-landmarks.jpg') center 22% / cover no-repeat;
-  opacity: 0.05;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 72%);
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 72%);
-}
-
+#ras-site .landing-page .directions::before,
 #ras-site .landing-page .directions::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  background: linear-gradient(180deg, rgba(236, 239, 245, 0.9) 0%, #fafaf9 78%);
-  pointer-events: none;
+  display: none;
 }
 
 #ras-site .landing-page .directions > .wrap {
@@ -72,10 +50,9 @@
 
 .directions-head {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 28px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .directions-title {
@@ -117,7 +94,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 250px;
+  min-height: clamp(280px, 32vw, 380px);
+  height: 100%;
   padding: 22px 20px 18px;
   border-radius: 22px;
   overflow: hidden;
@@ -126,6 +104,16 @@
   background: #1a2030;
   box-shadow: 0 16px 40px rgba(16, 32, 64, 0.16);
   isolation: isolate;
+}
+
+.directions-grid > .section-reveal {
+  display: block;
+  height: 100%;
+  min-width: 0;
+}
+
+.directions-grid > .section-reveal .direction-flip {
+  height: 100%;
 }
 
 .direction-card::before {
@@ -183,6 +171,10 @@
   line-height: 1.05;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.direction-card-label--en {
+  display: none;
 }
 
 .direction-card--gold .direction-card-label {
@@ -274,12 +266,9 @@
     height: 40px;
   }
 
-  #ras-site .landing-page .logo-text-line--main {
-    font-size: 11px;
-  }
-
-  #ras-site .landing-page .logo-text-line--accent {
-    font-size: 16px;
+  #ras-site .landing-page .logo-text-line {
+    font-size: 13px;
+    letter-spacing: 0.1em;
   }
 
   #ras-site .landing-page .logo-text-tagline {
@@ -298,30 +287,13 @@
     min-height: max(520px, 100dvh);
   }
 
-  #ras-site .hero--landing .hero-inner {
-    align-items: center;
-    justify-content: center;
-    padding: 84px 20px 40px;
-    text-align: center;
-  }
-
   #ras-site .hero--landing .hero-content {
     margin: 0 auto;
     text-align: center;
   }
 
-  #ras-site .hero--landing .hero-title {
-    font-size: clamp(28px, 7.6vw, 36px);
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
   #ras-site .hero--landing .hero-actions {
     justify-content: center;
-  }
-
-  #ras-site .landing-page .directions {
-    padding: 16px 0 56px;
   }
 
   .directions-nav {
@@ -336,13 +308,53 @@
 
   .directions-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 14px;
   }
 
-  .direction-card {
-    min-height: 250px;
-    border-radius: 22px;
+  .direction-flip.home-flip,
+  .direction-flip .home-flip__inner,
+  .direction-flip .direction-card.home-flip__face--front {
+    min-height: 220px;
+  }
+
+  .direction-flip .direction-card.home-flip__face--front {
     padding: 22px 20px 18px;
+    justify-content: space-between;
+  }
+
+  .direction-flip .direction-card-label {
+    font-size: clamp(28px, 8vw, 36px);
+    color: #fff;
+  }
+
+  .direction-flip .direction-card--gold .direction-card-label {
+    color: #f3e6c8;
+  }
+
+  .direction-flip .direction-card--blue .direction-card-label {
+    font-size: clamp(24px, 6.5vw, 30px);
+  }
+
+  .direction-flip .direction-card-photo {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .direction-flip .direction-card-shade {
+    display: block;
+  }
+
+  .direction-card:not(.home-flip__face--front) {
+    min-height: 168px;
+    height: auto;
+    border-radius: 22px;
+    padding: 22px 46% 22px 20px;
+    justify-content: center;
+    box-shadow: 0 10px 28px rgba(16, 32, 64, 0.08);
   }
 
   #ras-site .landing-page .ras-formats-mock-list {
@@ -441,23 +453,8 @@
 }
 
 #ras-site .landing-page .landing-section-accent::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  left: clamp(8px, 2.5vw, 28px);
-  width: 2px;
-  border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(201, 169, 98, 0.75) 22%,
-    rgba(142, 26, 40, 0.45) 50%,
-    rgba(16, 32, 64, 0.35) 78%,
-    transparent 100%
-  );
-  pointer-events: none;
-  opacity: 0.7;
+  content: none;
+  display: none;
 }
 
 #ras-site .landing-page .landing-section-hairline::after {
@@ -545,9 +542,10 @@
 @media (max-width: 900px) {
   #ras-site .landing-page .ras-why-mock-head {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: var(--landing-section-head-gap, 28px);
   }
 
   #ras-site .landing-page .ras-why-pillars {
@@ -575,8 +573,16 @@
   }
 
   #ras-site .landing-page .ras-why-pillar-icon {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 64px;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  #ras-site .landing-page .ras-why-pillar-icon svg {
+    width: 48px;
+    height: 48px;
   }
 
   #ras-site .landing-page .ras-why-pillar-title {
@@ -585,8 +591,12 @@
     text-wrap: balance;
   }
 
+  #ras-site .landing-page .ras-why-pillars--intro .ras-why-pillar-title {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
   #ras-site .landing-page .ras-why-pillar-desc {
-    font-size: clamp(15px, 3.8vw, 17px);
+    font-size: clamp(14px, 3.6vw, 16px);
     max-width: 24rem;
     text-wrap: balance;
   }
