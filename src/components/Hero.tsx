@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { LeadFormTrigger } from '@/components/lead-form/LeadFormTrigger';
 
 export function Hero() {
@@ -20,13 +19,9 @@ export function Hero() {
 
           <div className="hero-actions">
             <LeadFormTrigger intent="consultation" className="hero-btn hero-btn--primary">
-              Записатися
+              Звʼязатися
               <span aria-hidden="true">→</span>
             </LeadFormTrigger>
-
-            <Link href="/level-test" className="hero-btn hero-btn--gold">
-              Пройти тестування
-            </Link>
           </div>
         </div>
       </div>
